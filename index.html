@@ -920,7 +920,7 @@ function renderGrid() {
       ${qty > 0 ? `<div class="prod-qty-badge" aria-hidden="true">${qty}</div>` : ''}
       <div class="prod-emoji-bubble" aria-hidden="true">${item.emoji}</div>
       <div class="prod-name">${esc(item.name)}</div>
-      <div class="prod-cat-lbl">${esc(item.catLbl)}</div>
+      <div class="prod-cat-lbl">${esc(item.cat_lbl||item.catLbl||item.cat)}</div>
       <div class="prod-foot">
         <span class="prod-price">${fmt(item.price)}</span>
         <button class="prod-add" data-add="${esc(item.id)}" aria-label="Add ${esc(item.name)} to cart" tabindex="-1">+</button>
@@ -1529,7 +1529,7 @@ async function loadFromDB() {
     sb.from('menu').select('*').order('name'),
     sb.from('transactions').select('*').order('ts', { ascending: false })
   ]);
-  if (e1 || e2) { toast('error','Load Error','Could not load data from database.',4000); return; }
+  if (e1 || e2) { console.error('DB load:', e1||e2); return; }
   if (menu)  S.menu = menu;
   if (txs)   S.transactions = txs.map(t => ({ ...t, ts: new Date(t.ts), paymentMethod: t.payment_method }));
   renderCatTabs();
