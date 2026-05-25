@@ -71,17 +71,17 @@
       box-shadow: 0 2px 10px rgba(232,168,48,0.18);
     }
     .sb-logo-name { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--amber); letter-spacing: 0.4px; line-height: 1; }
-    .sb-logo-sub { font-size: 9px; font-weight: 600; letter-spacing: 2.8px; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 3px; }
+    .sb-logo-sub { font-size: 10.5px; font-weight: 600; letter-spacing: 2.4px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 3px; }
 
     .sb-section { padding: 20px 16px 6px; }
-    .sb-section-lbl { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.18); padding: 0 8px; }
+    .sb-section-lbl { font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.45); padding: 0 8px; }
 
     .sb-nav { padding: 6px 10px; display: flex; flex-direction: column; gap: 2px; flex: 1; }
     .nav-item {
       display: flex; align-items: center; gap: 11px;
       padding: 10px 14px 10px 12px;
       border-radius: 10px; cursor: pointer;
-      transition: var(--ease); color: rgba(255,255,255,0.36);
+      transition: var(--ease); color: rgba(255,255,255,0.58);
       font-size: 13px; font-weight: 500;
       user-select: none; position: relative;
     }
@@ -101,9 +101,9 @@
     .sb-status:hover .sb-status-txt { color: rgba(255,255,255,0.55); }
     .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 9px rgba(74,222,128,0.65); animation: blink 2.2s ease infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.35} }
-    .sb-status-txt { font-size: 11px; color: rgba(255,255,255,0.28); font-weight: 400; }
+    .sb-status-txt { font-size: 11px; color: rgba(255,255,255,0.52); font-weight: 400; }
     .sb-clock { font-family: 'Playfair Display', serif; font-size: 23px; font-weight: 500; color: rgba(255,255,255,0.62); letter-spacing: 1px; }
-    .sb-date { font-size: 11px; color: rgba(255,255,255,0.22); margin-top: 3px; }
+    .sb-date { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 3px; }
 
     #sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(22,13,6,0.52); z-index: 55; }
 
@@ -215,7 +215,7 @@
     .prod-unavail-badge {
       position: absolute; top: 10px; right: 10px;
       background: rgba(220,38,38,0.1); color: #dc2626;
-      font-size: 9px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase;
       padding: 2px 7px; border-radius: 6px;
     }
 
@@ -341,7 +341,7 @@
     .inv-table tbody tr:hover { background: #fdfaf5; }
     .inv-table td { padding: 14px 20px; font-size: 13px; vertical-align: middle; }
     .ing-name-txt { font-weight: 600; color: var(--txt); }
-    .low-badge { display: inline-block; margin-left: 7px; padding: 2px 7px; border-radius: 99px; font-size: 9px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; background: rgba(220,38,38,0.1); color: #b91c1c; border: 1px solid rgba(220,38,38,0.15); }
+    .low-badge { display: inline-block; margin-left: 7px; padding: 2px 7px; border-radius: 99px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; background: rgba(220,38,38,0.1); color: #b91c1c; border: 1px solid rgba(220,38,38,0.15); }
 
     /* Category-colored inventory pills */
     .cat-pill { display: inline-block; padding: 3px 10px; border-radius: 99px; font-size: 10.5px; font-weight: 500; background: var(--latte); color: var(--bark); }
@@ -425,14 +425,14 @@
     .nav-badge {
       margin-left: auto; min-width: 17px; height: 17px;
       background: #ef4444; color: #fff; border-radius: 99px;
-      font-size: 9px; font-weight: 700;
+      font-size: 11px; font-weight: 700;
       display: flex; align-items: center; justify-content: center;
       padding: 0 5px; flex-shrink: 0;
     }
     .prod-few-badge {
       margin: -2px 0 9px; display: inline-block;
       background: rgba(245,158,11,0.11); color: #92400e;
-      font-size: 9.5px; font-weight: 700; letter-spacing: 0.3px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.3px;
       padding: 2px 8px; border-radius: 5px;
       border: 1px solid rgba(245,158,11,0.18);
     }
@@ -521,9 +521,10 @@
       .kpi-grid { grid-template-columns: repeat(2,1fr); }
       .analytics-panels { grid-template-columns: 1fr; }
       .topbar { padding: 0 16px; }
-      .ledger-table thead th:nth-child(3), .ledger-table td:nth-child(3) { display: none; }
+      .ledger-table thead th:nth-child(3), .ledger-table td:nth-child(3) { max-width: 120px; font-size: 11.5px; }
+      .tx-items { max-width: 100px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
     }
-    @media (max-width: 480px) { .kpi-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) { .kpi-grid { grid-template-columns: repeat(2,1fr); } }
 
     /* ── AUTH SCREEN ── */
     #auth-screen {
@@ -556,8 +557,88 @@
     .sync-dot { width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;margin-right:5px;transition:background .3s; }
     .sync-dot.syncing { background:var(--amber);animation:pulse .9s infinite; }
     .sync-dot.error   { background:#ef4444; }
+
+    /* ── MODAL CLOSE BUTTON (#16) ── */
+    .modal { position: relative; }
+    .modal-x { position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;background:var(--latte);border:none;color:var(--fog);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--ease);line-height:1; }
+    .modal-x:hover { background:var(--stone);color:var(--txt); }
+
+    /* ── SKELETON SHIMMER (#24) ── */
+    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+    .skeleton { background:linear-gradient(90deg,var(--latte) 25%,var(--stone) 50%,var(--latte) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:6px; }
+    .skeleton-card { background:#fff;border-radius:16px;padding:16px 15px 14px;border:1.5px solid var(--stone);box-shadow:var(--sh-sm); }
+    .sk-emoji  { width:46px;height:46px;border-radius:12px;margin-bottom:11px; }
+    .sk-line   { height:12px;margin-bottom:8px;border-radius:4px; }
+    .sk-line.short { width:55%; }
+    .sk-line.xs    { width:35%;height:10px; }
+
+    /* ── FAB CART (mobile, #11) ── */
+    .fab-cart { display:none;position:fixed;bottom:24px;right:24px;z-index:50;width:56px;height:56px;border-radius:50%;background:var(--espresso);color:var(--amber);border:none;font-size:22px;box-shadow:0 4px 20px rgba(22,13,6,.32);transition:var(--ease);align-items:center;justify-content:center;cursor:pointer; }
+    .fab-cart:hover { background:var(--bark);transform:scale(1.08); }
+    .fab-cart-badge { position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;background:#ef4444;color:#fff;border-radius:99px;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 5px; }
+    @media(max-width:768px){ .fab-cart{display:flex;} }
+
+    /* ── ADD PRODUCT DISTINCT BUTTON (#21) ── */
+    .btn-add-product { padding:8px 16px;background:linear-gradient(135deg,#2d1608,var(--espresso));color:var(--amber);border:none;border-radius:9px;font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:6px;cursor:pointer;transition:var(--ease);white-space:nowrap;box-shadow:0 2px 10px rgba(22,13,6,.22);font-family:inherit; }
+    .btn-add-product:hover { background:linear-gradient(135deg,var(--bark),#2d1608);box-shadow:0 4px 16px rgba(22,13,6,.3);transform:translateY(-1px); }
+    .btn-add-product:active { transform:scale(.98); }
+
+    /* ── KPI TREND INDICATOR (#19) ── */
+    .kpi-trend { font-size:11.5px;margin-top:8px;display:flex;align-items:center;gap:4px; }
+    .trend-up   { color:#16a34a; }
+    .trend-down { color:#dc2626; }
+    .trend-neu  { color:var(--fog); }
+
+    /* ── ANALYTICS DATE FILTER (#18) ── */
+    .date-filter-bar { display:flex;align-items:center;gap:8px;margin-bottom:18px;flex-wrap:wrap; }
+    .date-filter-lbl { font-size:11.5px;color:var(--fog);flex-shrink:0; }
+    .dfp { padding:5px 13px;border-radius:99px;font-size:11.5px;font-weight:500;cursor:pointer;border:1.5px solid var(--stone);background:#fff;color:var(--fog);transition:var(--ease);white-space:nowrap;user-select:none; }
+    .dfp:hover { border-color:var(--honey);color:var(--honey); }
+    .dfp:focus-visible { outline:2px solid var(--honey);outline-offset:2px; }
+    .dfp.active { background:var(--espresso);color:var(--amber);border-color:var(--espresso);box-shadow:0 2px 8px rgba(22,13,6,.18); }
+
+    /* ── INVENTORY SORT (#22) ── */
+    .inv-table thead th.sortable { cursor:pointer;user-select:none; }
+    .inv-table thead th.sortable:hover { color:var(--honey); }
+    .sort-arr { margin-left:4px;font-size:10px;opacity:.5; }
+
+    /* ── STOCK BARS (#23) ── */
+    .stock-cell { min-width:160px; }
+    .stock-nums { display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px; }
+    .stock-curr { font-size:13px;font-weight:700;color:var(--txt); }
+    .stock-max-txt { font-size:11px;color:var(--fog); }
+    .pb-bg { height:6px;background:var(--latte);border-radius:99px;overflow:hidden; }
+    .pb-fill { height:100%;border-radius:99px;transition:width .6s cubic-bezier(.4,0,.2,1); }
+    .pb-hi  { background:linear-gradient(90deg,#16a34a,#4ade80); }
+    .pb-mid { background:linear-gradient(90deg,#d97706,#fbbf24); }
+    .pb-lo  { background:linear-gradient(90deg,#dc2626,#f87171); }
+
+    /* ── PAGINATION (#28) ── */
+    .pagination { display:flex;align-items:center;gap:5px;padding:13px 20px;border-top:1px solid var(--latte);justify-content:flex-end;flex-wrap:wrap; }
+    .pg-btn { width:30px;height:30px;border-radius:7px;border:1.5px solid var(--stone);background:#fff;color:var(--fog);font-size:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--ease);flex-shrink:0; }
+    .pg-btn:hover:not(:disabled):not(.active) { border-color:var(--honey);color:var(--honey); }
+    .pg-btn.active { background:var(--espresso);color:var(--amber);border-color:var(--espresso); }
+    .pg-btn:disabled { opacity:.38;cursor:not-allowed; }
+    .pg-info { font-size:11.5px;color:var(--fog);padding:0 6px; }
+
+    /* ── KEYBOARD SHORTCUTS (#25) ── */
+    .shortcut-bar { display:flex;gap:14px;margin-bottom:14px;flex-wrap:wrap;align-items:center; }
+    .shortcut-item { display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--fog); }
+    kbd { display:inline-block;padding:1px 6px;border:1.5px solid var(--stone);border-radius:5px;font-size:10.5px;font-family:inherit;background:var(--cream);color:var(--txt);box-shadow:0 1.5px 0 var(--stone);line-height:1.5; }
+
+    /* ── SEARCH SCOPE HINT (#6) ── */
+    .search-scope-hint { display:none;margin-bottom:12px;padding:7px 14px;background:rgba(192,115,24,.07);border:1px solid rgba(192,115,24,.18);border-radius:8px;font-size:12px;color:var(--bark);display:flex;align-items:center;gap:6px; }
+    .search-scope-hint.visible { display:flex; }
+
+    /* ── CART SUMMARY ROWS (#2) ── */
+    .sum-row { display:flex;justify-content:space-between;align-items:center;font-size:12.5px;margin-bottom:5px; }
+    .sum-lbl { color:var(--fog); }
+    .sum-val { font-weight:500;color:var(--txt); }
+    .sum-discount-row { display:flex;justify-content:space-between;align-items:center;font-size:12.5px;margin-bottom:5px; }
+    .sum-discount-val { font-weight:500;color:#16a34a; }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
@@ -568,7 +649,7 @@
     <div id="auth-error" class="auth-error"></div>
 
     <div id="auth-panel-signin">
-      <input type="email"    id="auth-email"    class="auth-inp" placeholder="Email address" autocomplete="email">
+      <input type="text"     id="auth-username" class="auth-inp" placeholder="Your name" autocomplete="username">
       <input type="password" id="auth-password" class="auth-inp" placeholder="Password" autocomplete="current-password">
       <button class="btn-primary" id="auth-signin-btn" style="width:100%">Sign In</button>
       <div class="auth-switch">New here? <a id="to-signup">Create account</a></div>
@@ -576,13 +657,7 @@
 
     <div id="auth-panel-signup" style="display:none">
       <input type="text"     id="auth-name"        class="auth-inp" placeholder="Your name" autocomplete="name">
-      <input type="email"    id="auth-su-email"    class="auth-inp" placeholder="Email address" autocomplete="email">
       <input type="password" id="auth-su-password" class="auth-inp" placeholder="Password (min 6 chars)" autocomplete="new-password">
-      <div class="form-lbl" style="margin-bottom:8px">Role</div>
-      <div id="signup-roles" class="pay-methods" role="radiogroup" style="margin-bottom:16px">
-        <div class="pay-btn selected" data-role="cashier" role="radio" aria-checked="true"  tabindex="0">🧑‍💼 Cashier</div>
-        <div class="pay-btn"          data-role="manager" role="radio" aria-checked="false" tabindex="0">👔 Manager</div>
-      </div>
       <button class="btn-primary" id="auth-signup-btn" style="width:100%">Create Account</button>
       <div class="auth-switch">Have an account? <a id="to-signin">Sign in</a></div>
     </div>
@@ -648,10 +723,20 @@
     <div class="tab-view active" id="tab-pos" role="region" aria-label="Point of Sale">
       <div class="pos-grid">
         <div>
+          <div class="shortcut-bar" aria-label="Keyboard shortcuts">
+            <span class="shortcut-item"><kbd>/</kbd> Search</span>
+            <span class="shortcut-item"><kbd>N</kbd> New order</span>
+            <span class="shortcut-item"><kbd>C</kbd> Checkout</span>
+            <span class="shortcut-item"><kbd>1</kbd>–<kbd>3</kbd> Switch tab</span>
+          </div>
           <div class="search-wrap">
             <svg class="search-icon" aria-hidden="true" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
             <input type="search" id="search-inp" class="search-inp" placeholder="Search menu items…" aria-label="Search menu items" autocomplete="off">
             <button class="search-clear" id="search-clear" aria-label="Clear search">×</button>
+          </div>
+          <div class="search-scope-hint" id="search-scope-hint" role="status">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span id="search-scope-txt"></span>
           </div>
           <div class="cat-tabs" id="cat-tabs" role="tablist" aria-label="Menu categories">
             <div class="cat-tab active" role="tab" tabindex="0" data-cat="all" aria-selected="true">All Items</div>
@@ -674,6 +759,18 @@
             </div>
           </div>
           <div class="cart-summary">
+            <div class="sum-row" id="sum-subtotal-row" style="display:none">
+              <span class="sum-lbl">Subtotal</span>
+              <span class="sum-val" id="sum-subtotal"></span>
+            </div>
+            <div class="sum-discount-row" id="sum-discount-row" style="display:none">
+              <span class="sum-lbl" id="sum-discount-lbl">Discount</span>
+              <span class="sum-discount-val" id="sum-discount-val"></span>
+            </div>
+            <div class="sum-row" id="sum-tax-row" style="display:none">
+              <span class="sum-lbl">Tax (15%)</span>
+              <span class="sum-val" id="sum-tax"></span>
+            </div>
             <div class="sum-total-row">
               <span class="sum-total-lbl">Total</span>
               <span class="sum-total-val" id="sum-total">ETB 0.00</span>
@@ -694,17 +791,18 @@
           <div class="sec-title">Inventory</div>
           <div class="sec-sub">Manage your products — they appear live in the POS</div>
         </div>
-        <button class="export-btn" id="add-product-btn" aria-label="Add new product">
+        <button class="btn-add-product" id="add-product-btn" aria-label="Add new product">
           <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
           Add Product
         </button>
       </div>
-      <div class="inv-wrap">
+      <div class="inv-wrap" id="inv-wrap">
         <table class="inv-table" id="inv-table" aria-label="Product list">
           <thead><tr>
-            <th scope="col">Product</th>
-            <th scope="col">Category</th>
-            <th scope="col">Price</th>
+            <th scope="col" class="sortable" data-sort="name">Product <span class="sort-arr" id="sort-arr-name">↕</span></th>
+            <th scope="col" class="sortable" data-sort="cat">Category <span class="sort-arr" id="sort-arr-cat"></span></th>
+            <th scope="col" class="sortable" data-sort="price">Price <span class="sort-arr" id="sort-arr-price"></span></th>
+            <th scope="col">Stock</th>
             <th scope="col">Actions</th>
           </tr></thead>
           <tbody id="inv-tbody"></tbody>
@@ -729,6 +827,14 @@
             Export CSV
           </button>
         </div>
+      </div>
+
+      <div class="date-filter-bar" id="date-filter-bar" role="group" aria-label="Date range filter">
+        <span class="date-filter-lbl">Range:</span>
+        <div class="dfp active" data-df="all"     role="button" tabindex="0">All Time</div>
+        <div class="dfp"        data-df="today"   role="button" tabindex="0">Today</div>
+        <div class="dfp"        data-df="week"    role="button" tabindex="0">This Week</div>
+        <div class="dfp"        data-df="month"   role="button" tabindex="0">This Month</div>
       </div>
 
       <div class="kpi-grid">
@@ -779,7 +885,7 @@
         <div class="lf-pill"        data-lpay="Card"    role="button" tabindex="0">💳 Card</div>
         <div class="lf-pill"        data-lpay="Digital" role="button" tabindex="0">📱 Digital</div>
       </div>
-      <div class="ledger-wrap">
+      <div class="ledger-wrap" id="ledger-wrap">
         <table class="ledger-table" aria-label="Transaction ledger">
           <thead><tr>
             <th scope="col">Timestamp</th>
@@ -800,6 +906,10 @@
   </div>
 </main>
 
+<button class="fab-cart" id="fab-cart" aria-label="View cart">
+  🛒
+  <span class="fab-cart-badge" id="fab-cart-badge" style="display:none"></span>
+</button>
 <div id="toast-tray" aria-live="polite" aria-atomic="false"></div>
 
 <div id="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-title-el">
@@ -808,6 +918,7 @@
 
 <script>
 const LS_KEY = 'breva_v2';
+const LS_LA_SESSION = LS_KEY + '_la_active';
 
 
 /* ── SUPABASE CONFIG ──────────────────────────────────────────
@@ -846,6 +957,12 @@ const S = {
   cart:         [],
   transactions: [],
   menu:         [],
+  discountPct:  0,
+  invSort:      'name',
+  invSortDir:   'asc',
+  invPage:      1,
+  dateFilter:   'all',
+  ledgerPage:   1,
 };
 let realtimeChannel = null;
 let autoSyncTimer   = null;
@@ -920,10 +1037,22 @@ $('cat-tabs').addEventListener('keydown', e => { if ((e.key==='Enter'||e.key==='
 /* ── PRODUCT GRID ── */
 function renderGrid() {
   const grid = $('product-grid');
+  const hint = $('search-scope-hint');
+  // Show search scope hint when both search and category filter are active (#6)
+  if (hint) {
+    if (S.searchQ && S.activeCat !== 'all') {
+      const catLbl = S.menu.find(m=>m.cat===S.activeCat)?.cat_lbl || S.activeCat;
+      $('search-scope-txt').textContent = `Searching within "${catLbl}" only — clear category to search all items`;
+      hint.classList.add('visible');
+    } else {
+      hint.classList.remove('visible');
+    }
+  }
   let items = S.activeCat === 'all' ? S.menu : S.menu.filter(m => m.cat === S.activeCat);
   if (S.searchQ) items = items.filter(m => m.name.toLowerCase().includes(S.searchQ));
   if (!items.length) {
-    grid.innerHTML = '<div style="grid-column:1/-1;padding:48px;text-align:center;font-size:13px;color:var(--fog)">No items match your search.</div>';
+    const msg = S.searchQ ? `No items match "<strong>${esc(S.searchQ)}</strong>"${S.activeCat!=='all'?' in this category':''}.` : 'No items in this category.';
+    grid.innerHTML = `<div style="grid-column:1/-1;padding:48px 20px;text-align:center;font-size:13px;color:var(--fog)">${msg}<br><span style="font-size:11.5px;margin-top:6px;display:block">Try a different search or category.</span></div>`;
     return;
   }
   grid.innerHTML = items.map(item => {
@@ -976,8 +1105,30 @@ function setQty(id, val) {
   if (qty===0) S.cart.splice(idx,1); else S.cart[idx].qty = qty;
   renderCart(); renderGrid(); persist();
 }
-function clearCart() { if (!S.cart.length) return; S.cart=[]; renderCart(); renderGrid(); persist(); }
-function cartTotals() { const total=S.cart.reduce((s,i)=>s+i.price*i.qty,0); return { total }; }
+function clearCart() {
+  if (!S.cart.length) return;
+  $('modal-box').innerHTML=`
+    <button class="modal-x" id="mo-x" aria-label="Close">×</button>
+    <div class="modal-icon" aria-hidden="true">🗑️</div>
+    <div class="modal-title" id="modal-title-el">Clear Order?</div>
+    <div class="modal-body">Remove all ${S.cart.length} item${S.cart.length!==1?'s':''} from the current order?</div>
+    <div class="modal-actions">
+      <button class="btn-secondary" id="mo-cancel">Keep Order</button>
+      <button class="btn-primary" id="mo-confirm" style="background:linear-gradient(135deg,#991b1b,#dc2626)">Clear All</button>
+    </div>`;
+  openModal();
+  $('mo-x').addEventListener('click',closeModal);
+  $('mo-cancel').addEventListener('click',closeModal);
+  $('mo-confirm').addEventListener('click',()=>{ S.cart=[]; S.discountPct=0; closeModal(); renderCart(); renderGrid(); persist(); });
+}
+function cartTotals() {
+  const subtotal = S.cart.reduce((s,i) => s + i.price*i.qty, 0);
+  const discountAmt = subtotal * (S.discountPct / 100);
+  const afterDiscount = subtotal - discountAmt;
+  const tax = afterDiscount * 0.15;
+  const total = afterDiscount + tax;
+  return { subtotal, discountAmt, tax, total };
+}
 
 function renderCart() {
   const wrap = $('cart-items-wrap'), empty = $('cart-empty-msg');
@@ -1012,9 +1163,22 @@ function renderCart() {
     });
     wrap.insertBefore(frag,empty);
   }
-  const {total}=cartTotals();
-  $('sum-total').textContent=fmt(total);
-  $('checkout-btn').disabled=S.cart.length===0;
+  const {subtotal,discountAmt,tax,total}=cartTotals();
+  const hasItems = S.cart.length > 0;
+  $('sum-subtotal-row').style.display = hasItems ? '' : 'none';
+  $('sum-discount-row').style.display = (hasItems && S.discountPct > 0) ? '' : 'none';
+  $('sum-tax-row').style.display = hasItems ? '' : 'none';
+  if (hasItems) {
+    $('sum-subtotal').textContent = fmt(subtotal);
+    $('sum-discount-lbl').textContent = `Discount (${S.discountPct}%)`;
+    $('sum-discount-val').textContent = '− ' + fmt(discountAmt);
+    $('sum-tax').textContent = fmt(tax);
+  }
+  $('sum-total').textContent = fmt(hasItems ? total : 0);
+  $('checkout-btn').disabled = !hasItems;
+  // Update FAB badge
+  const fab = $('fab-cart-badge');
+  if (fab) { if (totalQty>0){fab.style.display='flex';fab.textContent=totalQty;}else{fab.style.display='none';} }
 }
 
 $('cart-items-wrap').addEventListener('click', e => {
@@ -1046,12 +1210,45 @@ function processCheckout() {
   showCheckoutModal();
 }
 function showCheckoutModal() {
-  const {total}=cartTotals();
-  const summary=S.cart.map(i=>`${item_emoji(i.id)} ${esc(i.name)} ×${i.qty}`).join('  ·  ');
+  function buildItemRows() {
+    return S.cart.map(i=>`
+      <tr style="border-bottom:1px solid var(--latte)">
+        <td style="padding:8px 4px;font-size:13px">${i.emoji||''} ${esc(i.name)}</td>
+        <td style="padding:8px 6px;text-align:center;white-space:nowrap">
+          <div style="display:flex;align-items:center;gap:5px;justify-content:center">
+            <button class="qty-btn" data-co-dec="${esc(i.id)}" style="width:22px;height:22px;font-size:14px">−</button>
+            <span style="font-size:13px;font-weight:700;min-width:18px;text-align:center">${i.qty}</span>
+            <button class="qty-btn" data-co-inc="${esc(i.id)}" style="width:22px;height:22px;font-size:14px">+</button>
+          </div>
+        </td>
+        <td style="padding:8px 0 8px 6px;text-align:right;font-family:'Playfair Display',serif;font-weight:700;font-size:13px;white-space:nowrap">${fmt(i.price*i.qty)}</td>
+      </tr>`).join('');
+  }
+  function refreshTotals() {
+    const {subtotal,discountAmt,tax,total}=cartTotals();
+    const disc = S.discountPct;
+    $('co-subtotal').textContent = fmt(subtotal);
+    $('co-discount-row').style.display = disc>0?'flex':'none';
+    $('co-discount-lbl').textContent = `Discount (${disc}%)`;
+    $('co-discount-val').textContent = '− '+fmt(discountAmt);
+    $('co-tax').textContent = fmt(tax);
+    $('co-total').textContent = fmt(total);
+  }
   $('modal-box').innerHTML=`
+    <button class="modal-x" id="mo-x" aria-label="Close">×</button>
     <div class="modal-icon" aria-hidden="true">🧾</div>
     <div class="modal-title" id="modal-title-el">Confirm Order</div>
-    <div class="modal-body" style="margin-bottom:14px;line-height:1.8">${summary}</div>
+    <table id="co-items-tbl" style="width:100%;border-collapse:collapse;margin-bottom:12px"><tbody>${buildItemRows()}</tbody></table>
+    <div style="padding:10px 12px;background:var(--cream);border-radius:9px;margin-bottom:14px;font-size:12.5px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="color:var(--fog)">Subtotal</span><span id="co-subtotal"></span></div>
+      <div id="co-discount-row" style="display:none;justify-content:space-between;margin-bottom:4px"><span style="color:var(--fog)" id="co-discount-lbl">Discount</span><span style="color:#16a34a;font-weight:600" id="co-discount-val"></span></div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="color:var(--fog)">Tax (15%)</span><span id="co-tax"></span></div>
+      <div style="display:flex;justify-content:space-between;padding-top:8px;border-top:1.5px dashed var(--stone);margin-top:4px"><strong>Total</strong><strong style="font-family:'Playfair Display',serif;font-size:16px;color:var(--bark)" id="co-total"></strong></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+      <label class="form-lbl" for="co-discount" style="margin:0;white-space:nowrap">Discount %</label>
+      <input type="number" id="co-discount" class="form-inp" min="0" max="100" step="1" value="${S.discountPct}" placeholder="0" style="margin:0;width:80px">
+    </div>
     <div class="form-lbl">Payment Method</div>
     <div class="pay-methods" id="pay-methods" role="radiogroup" aria-label="Payment method">
       <div class="pay-btn selected" data-pay="Cash"    role="radio" aria-checked="true"  tabindex="0"><span class="pay-icon" aria-hidden="true">💵</span>Cash</div>
@@ -1060,37 +1257,90 @@ function showCheckoutModal() {
     </div>
     <label class="form-lbl" for="order-notes">Notes <span style="font-weight:400;color:var(--fog)">(optional)</span></label>
     <textarea id="order-notes" class="form-textarea" placeholder="e.g. oat milk, extra shot, name on cup…" maxlength="200"></textarea>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding:12px 14px;background:var(--cream);border-radius:9px">
-      <span style="font-size:12.5px;color:var(--fog)">Total</span>
-      <strong style="font-family:'Playfair Display',serif;font-size:18px;color:var(--bark)">${fmt(total)}</strong>
-    </div>
     <div class="modal-actions">
       <button class="btn-secondary" id="mo-cancel">Cancel</button>
       <button class="btn-primary"   id="mo-confirm">Confirm &amp; Pay</button>
     </div>`;
   openModal();
+  refreshTotals();
+  // Qty editing inside modal
+  $('co-items-tbl').addEventListener('click', e=>{
+    if (e.target.dataset.coDec) { adjQty(e.target.dataset.coDec,-1); $('co-items-tbl').querySelector('tbody').innerHTML=buildItemRows(); refreshTotals(); }
+    if (e.target.dataset.coInc) { adjQty(e.target.dataset.coInc, 1); $('co-items-tbl').querySelector('tbody').innerHTML=buildItemRows(); refreshTotals(); }
+  });
+  // Discount field
+  $('co-discount').addEventListener('input', function(){
+    S.discountPct = Math.min(100, Math.max(0, parseFloat(this.value)||0));
+    refreshTotals();
+  });
+  $('mo-x').addEventListener('click',closeModal);
   $('mo-cancel').addEventListener('click',closeModal);
   $('mo-confirm').addEventListener('click',()=>{
+    if (!S.cart.length) { closeModal(); return; }
     const payEl=$('modal-box').querySelector('.pay-btn.selected');
     const method=payEl?payEl.dataset.pay:'Cash';
     const notes=($('order-notes').value||'').trim();
     finalizeCheckout(method,notes);
   });
-  $('pay-methods').addEventListener('click',e=>{
+  const pm=$('pay-methods');
+  pm.addEventListener('click',e=>{
     const btn=e.target.closest('.pay-btn'); if(!btn) return;
-    $('pay-methods').querySelectorAll('.pay-btn').forEach(b=>{b.classList.remove('selected');b.setAttribute('aria-checked','false');});
+    pm.querySelectorAll('.pay-btn').forEach(b=>{b.classList.remove('selected');b.setAttribute('aria-checked','false');});
     btn.classList.add('selected'); btn.setAttribute('aria-checked','true');
   });
-  $('pay-methods').addEventListener('keydown',e=>{ if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('pay-btn')){e.preventDefault();e.target.click();} });
+  pm.addEventListener('keydown',e=>{
+    const btns=[...pm.querySelectorAll('.pay-btn')];
+    const idx=btns.indexOf(e.target);
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'){ e.preventDefault(); btns[(idx+1)%btns.length].click(); btns[(idx+1)%btns.length].focus(); }
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){   e.preventDefault(); btns[(idx-1+btns.length)%btns.length].click(); btns[(idx-1+btns.length)%btns.length].focus(); }
+    if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.target.click(); }
+  });
 }
 function item_emoji(id) { return S.menu.find(m=>m.id===id)?.emoji||''; }
+
+function showPostCheckoutReceipt(tx) {
+  $('modal-box').innerHTML=`
+    <button class="modal-x" id="mo-x" aria-label="Close">×</button>
+    <div style="text-align:center;margin-bottom:16px">
+      <div style="font-size:40px;margin-bottom:8px">✅</div>
+      <div class="modal-title" id="modal-title-el" style="color:#16a34a">Order Complete!</div>
+      <div style="font-size:11.5px;color:var(--fog);margin-top:4px">${esc(tx.id)} · ${fmtStamp(tx.ts)}</div>
+    </div>
+    <table style="width:100%;border-collapse:collapse;margin-bottom:12px">
+      ${tx.items.map(i=>`<tr style="border-bottom:1px solid var(--latte)">
+        <td style="padding:8px 2px;font-size:13px">${i.emoji||''} ${esc(i.name)}</td>
+        <td style="padding:8px 6px;font-size:12px;color:var(--fog);text-align:center">×${i.qty}</td>
+        <td style="padding:8px 0 8px 6px;font-size:13px;text-align:right;font-family:'Playfair Display',serif;font-weight:700">${fmt(i.price*i.qty)}</td>
+      </tr>`).join('')}
+    </table>
+    <div style="padding:10px 12px;background:var(--cream);border-radius:9px;margin-bottom:16px;font-size:12.5px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="color:var(--fog)">Subtotal</span><span>${fmt(tx.subtotal||tx.total)}</span></div>
+      ${tx.discountPct>0?`<div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="color:var(--fog)">Discount (${tx.discountPct}%)</span><span style="color:#16a34a">− ${fmt(tx.discountAmt||0)}</span></div>`:''}
+      ${tx.tax?`<div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="color:var(--fog)">Tax (15%)</span><span>${fmt(tx.tax)}</span></div>`:''}
+      <div style="display:flex;justify-content:space-between;padding-top:8px;border-top:1.5px dashed var(--stone);margin-top:4px"><strong>Total</strong><strong style="font-family:'Playfair Display',serif;font-size:16px;color:var(--bark)">${fmt(tx.total)}</strong></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:rgba(192,115,24,.06);border-radius:8px;margin-bottom:18px;font-size:12.5px">
+      <span style="color:var(--fog)">Payment</span><strong>${esc(tx.paymentMethod||'—')}</strong>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary" id="mo-cancel">Close</button>
+      <button class="btn-secondary" id="mo-print">🖨 Print</button>
+      <button class="btn-primary"   id="mo-pdf">📄 Export PDF (A6)</button>
+    </div>`;
+  openModal();
+  $('mo-x').addEventListener('click',closeModal);
+  $('mo-cancel').addEventListener('click',closeModal);
+  $('mo-print').addEventListener('click', () => printReceipt(tx, 'thermal'));
+  $('mo-pdf').addEventListener('click',   () => exportPdfA6(tx));
+}
 async function finalizeCheckout(paymentMethod,notes) {
-  const {total}=cartTotals();
-  const tx={id:genId(),ts:new Date(),items:S.cart.map(i=>({...i})),total,paymentMethod,notes};
+  const {subtotal,discountAmt,tax,total}=cartTotals();
+  const tx={id:genId(),ts:new Date(),items:S.cart.map(i=>({...i})),subtotal,discountAmt,discountPct:S.discountPct,tax,total,paymentMethod,notes};
   S.transactions.unshift(tx);
-  S.cart=[];
+  S.cart=[]; S.discountPct=0;
   persist(); closeModal(); renderCart(); renderGrid();
-  toast('success','Order Complete!',`${fmt(total)} — ${tx.id} (${paymentMethod})`,4500);
+  // Show post-checkout receipt preview (#27)
+  showPostCheckoutReceipt(tx);
   if (isLocalAdmin()) { localAdminSave(); }
   setSyncStatus('syncing');
   const { error } = await sb.from('transactions').insert({
@@ -1108,22 +1358,90 @@ async function finalizeCheckout(paymentMethod,notes) {
 }
 
 /* ── INVENTORY (PRODUCT MANAGEMENT) ── */
+const INV_PAGE_SIZE = 12;
+
+function sortedMenu() {
+  const arr = [...S.menu];
+  arr.sort((a,b) => {
+    let av = a[S.invSort] ?? '', bv = b[S.invSort] ?? '';
+    if (S.invSort === 'price') { av = Number(av); bv = Number(bv); }
+    else { av = String(av).toLowerCase(); bv = String(bv).toLowerCase(); }
+    if (av < bv) return S.invSortDir === 'asc' ? -1 : 1;
+    if (av > bv) return S.invSortDir === 'asc' ? 1 : -1;
+    return 0;
+  });
+  return arr;
+}
+
+function updateSortArrows() {
+  ['name','cat','price'].forEach(f => {
+    const el = $('sort-arr-' + f); if (!el) return;
+    el.textContent = S.invSort === f ? (S.invSortDir === 'asc' ? ' ↑' : ' ↓') : ' ↕';
+    el.style.opacity = S.invSort === f ? '1' : '0.4';
+  });
+}
+
 function renderInventory() {
   const tbody = $('inv-tbody'), empty = $('inv-empty'), table = $('inv-table');
-  if (!S.menu.length) {
-    table.style.display = 'none'; empty.style.display = 'block'; return;
-  }
-  table.style.display = ''; empty.style.display = 'none';
-  tbody.innerHTML = S.menu.map(item => `
-    <tr>
+  updateSortArrows();
+  const all = sortedMenu();
+  if (!all.length) { table.style.display='none'; empty.style.display='block'; return; }
+  table.style.display=''; empty.style.display='none';
+
+  const totalPages = Math.max(1, Math.ceil(all.length / INV_PAGE_SIZE));
+  S.invPage = Math.min(S.invPage, totalPages);
+  const page = all.slice((S.invPage-1)*INV_PAGE_SIZE, S.invPage*INV_PAGE_SIZE);
+
+  tbody.innerHTML = page.map(item => {
+    // Stock bar (#23) — use item.stock if present, else default to 100
+    const stock = item.stock != null ? item.stock : 100;
+    const maxStock = item.maxStock || 100;
+    const pct = Math.min(100, Math.round((stock / maxStock) * 100));
+    const pbCls = pct > 60 ? 'pb-hi' : pct > 25 ? 'pb-mid' : 'pb-lo';
+    return `<tr>
       <td><span style="margin-right:6px">${esc(item.emoji||'🍽️')}</span><span class="ing-name-txt">${esc(item.name)}</span></td>
-      <td><span class="cat-pill">${esc(item.cat_lbl||item.cat)}</span></td>
+      <td><span class="cat-pill" data-cat="${esc(item.cat_lbl||item.cat)}">${esc(item.cat_lbl||item.cat)}</span></td>
       <td style="font-weight:600;font-family:'Playfair Display',serif">${fmt(item.price)}</td>
-      <td style="display:flex;gap:8px">
+      <td class="stock-cell">
+        <div class="stock-nums">
+          <span class="stock-curr">${stock}</span>
+          <span class="stock-max-txt">/ ${maxStock}</span>
+        </div>
+        <div class="pb-bg"><div class="pb-fill ${pbCls}" style="width:${pct}%"></div></div>
+      </td>
+      <td style="display:flex;gap:8px;flex-wrap:wrap">
         <button class="restock-btn" data-edit="${esc(item.id)}">Edit</button>
         <button class="restock-btn" data-del="${esc(item.id)}" style="color:#b91c1c;border-color:rgba(185,28,28,.2)">Delete</button>
       </td>
-    </tr>`).join('');
+    </tr>`;
+  }).join('');
+
+  // Pagination (#28)
+  renderInvPagination(totalPages);
+}
+
+function renderInvPagination(totalPages) {
+  let pg = $('inv-pagination');
+  if (!pg) {
+    pg = document.createElement('div');
+    pg.id = 'inv-pagination';
+    pg.className = 'pagination';
+    $('inv-wrap').appendChild(pg);
+  }
+  if (totalPages <= 1) { pg.innerHTML=''; return; }
+  const cur = S.invPage;
+  let html = `<span class="pg-info">${(cur-1)*INV_PAGE_SIZE+1}–${Math.min(cur*INV_PAGE_SIZE,S.menu.length)} of ${S.menu.length}</span>`;
+  html += `<button class="pg-btn" id="inv-pg-prev" ${cur===1?'disabled':''} aria-label="Previous page">‹</button>`;
+  for (let i=1;i<=totalPages;i++) {
+    if (totalPages>6 && i>2 && i<totalPages-1 && Math.abs(i-cur)>1) { if(i===3||i===totalPages-2) html+='<span class="pg-info">…</span>'; continue; }
+    html += `<button class="pg-btn${i===cur?' active':''}" data-inv-pg="${i}" aria-label="Page ${i}">${i}</button>`;
+  }
+  html += `<button class="pg-btn" id="inv-pg-next" ${cur===totalPages?'disabled':''} aria-label="Next page">›</button>`;
+  pg.innerHTML = html;
+  pg.querySelectorAll('[data-inv-pg]').forEach(b=>b.addEventListener('click',()=>{ S.invPage=parseInt(b.dataset.invPg); renderInventory(); }));
+  const prev=$('inv-pg-prev'), next=$('inv-pg-next');
+  if(prev) prev.addEventListener('click',()=>{ if(S.invPage>1){S.invPage--;renderInventory();} });
+  if(next) next.addEventListener('click',()=>{ if(S.invPage<totalPages){S.invPage++;renderInventory();} });
 }
 
 $('inv-tbody').addEventListener('click', e => {
@@ -1136,9 +1454,11 @@ function renderCatTabs() {
   const cats = [...new Map(S.menu.map(m => [m.cat, m.cat_lbl||m.cat])).entries()];
   const tabs = $('cat-tabs');
   const cur = S.activeCat;
-  tabs.innerHTML = `<div class="cat-tab${cur==='all'?' active':''}" role="tab" tabindex="0" data-cat="all" aria-selected="${cur==='all'}">All Items</div>`
+  const counts = {};
+  S.menu.forEach(m => { counts[m.cat] = (counts[m.cat]||0) + 1; });
+  tabs.innerHTML = `<div class="cat-tab${cur==='all'?' active':''}" role="tab" tabindex="0" data-cat="all" aria-selected="${cur==='all'}">All Items <span style="opacity:.65;font-size:.9em">(${S.menu.length})</span></div>`
     + cats.map(([cat, lbl]) =>
-        `<div class="cat-tab${cur===cat?' active':''}" role="tab" tabindex="0" data-cat="${esc(cat)}" aria-selected="${cur===cat}">${esc(lbl)}</div>`
+        `<div class="cat-tab${cur===cat?' active':''}" role="tab" tabindex="0" data-cat="${esc(cat)}" aria-selected="${cur===cat}">${esc(lbl)} <span style="opacity:.65;font-size:.9em">(${counts[cat]||0})</span></div>`
       ).join('');
 }
 
@@ -1273,32 +1593,119 @@ $('add-product-btn').addEventListener('click', openAddProduct);
 /* ── MODAL ── */
 function openModal() {
   $('modal-bg').classList.add('open');
-  setTimeout(()=>{ const f=$('modal-box').querySelector('button,input,textarea,[tabindex="0"]'); if(f) f.focus(); },60);
+  // Inject X button if modal doesn't already have one (#16)
+  const box = $('modal-box');
+  if (!box.querySelector('.modal-x')) {
+    const x = document.createElement('button');
+    x.className='modal-x'; x.setAttribute('aria-label','Close'); x.textContent='×';
+    x.addEventListener('click', closeModal);
+    box.prepend(x);
+  }
+  setTimeout(()=>{ const f=box.querySelector('input,textarea,[data-pay]'); if(f) f.focus(); },60);
 }
 function closeModal() { $('modal-bg').classList.remove('open'); }
 $('modal-bg').addEventListener('click',e=>{ if(e.target===$('modal-bg')) closeModal(); });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&$('modal-bg').classList.contains('open')) closeModal(); });
 
 /* ── ANALYTICS ── */
+const LEDGER_PAGE_SIZE = 15;
+
+function filterTxsByDate(txs) {
+  const now = new Date(), df = S.dateFilter;
+  if (df === 'all') return txs;
+  return txs.filter(t => {
+    const d = new Date(t.ts);
+    if (df === 'today') {
+      return d.getFullYear()===now.getFullYear() && d.getMonth()===now.getMonth() && d.getDate()===now.getDate();
+    }
+    if (df === 'week') {
+      const weekAgo = new Date(now); weekAgo.setDate(now.getDate()-7);
+      return d >= weekAgo;
+    }
+    if (df === 'month') {
+      return d.getFullYear()===now.getFullYear() && d.getMonth()===now.getMonth();
+    }
+    return true;
+  });
+}
+
+function prevPeriodTxs(txs) {
+  // Returns transactions from the same-length period immediately before the current one
+  const now = new Date(), df = S.dateFilter;
+  if (df === 'all') return [];
+  return txs.filter(t => {
+    const d = new Date(t.ts);
+    if (df === 'today') {
+      const yest = new Date(now); yest.setDate(now.getDate()-1);
+      return d.getFullYear()===yest.getFullYear() && d.getMonth()===yest.getMonth() && d.getDate()===yest.getDate();
+    }
+    if (df === 'week') {
+      const twoWeeksAgo = new Date(now); twoWeeksAgo.setDate(now.getDate()-14);
+      const weekAgo = new Date(now); weekAgo.setDate(now.getDate()-7);
+      return d >= twoWeeksAgo && d < weekAgo;
+    }
+    if (df === 'month') {
+      const prevMonth = new Date(now.getFullYear(), now.getMonth()-1, 1);
+      return d.getFullYear()===prevMonth.getFullYear() && d.getMonth()===prevMonth.getMonth();
+    }
+    return false;
+  });
+}
+
+function trendHtml(curr, prev) {
+  if (!prev || prev === 0) return '';
+  const pct = ((curr - prev) / prev * 100).toFixed(1);
+  const up = curr >= prev;
+  const cls = up ? 'trend-up' : 'trend-down';
+  const arrow = up ? '↑' : '↓';
+  return `<div class="kpi-trend ${cls}">${arrow} ${Math.abs(pct)}% vs prior period</div>`;
+}
+
 function renderAnalytics() {
-  const txs=S.transactions;
-  const gross=txs.reduce((s,t)=>s+t.total,0);
-  const avg=txs.length?gross/txs.length:0;
-  $('kpi-sales').textContent=fmt(gross);
-  $('kpi-tx').textContent=txs.length;
-  $('kpi-avg').textContent=fmt(avg);
+  const allTxs = S.transactions;
+  const txs = filterTxsByDate(allTxs);
+  const prev = prevPeriodTxs(allTxs);
+  const gross = txs.reduce((s,t)=>s+t.total,0);
+  const prevGross = prev.reduce((s,t)=>s+t.total,0);
+  const avg = txs.length ? gross/txs.length : 0;
+  const prevAvg = prev.length ? prevGross/prev.length : 0;
+
+  $('kpi-sales').textContent = fmt(gross);
+  $('kpi-tx').textContent = txs.length;
+  $('kpi-avg').textContent = fmt(avg);
+
+  // Inject trend indicators (#19)
+  ['kpi-sales','kpi-tx','kpi-avg'].forEach(id => {
+    const card = $(id)?.closest('.kpi-card');
+    if (!card) return;
+    let old = card.querySelector('.kpi-trend');
+    if (old) old.remove();
+    let html = '';
+    if (id==='kpi-sales') html = trendHtml(gross, prevGross);
+    if (id==='kpi-tx')    html = trendHtml(txs.length, prev.length);
+    if (id==='kpi-avg')   html = trendHtml(avg, prevAvg);
+    if (html) card.insertAdjacentHTML('beforeend', html);
+  });
+
   renderBestSellers(txs);
   renderCatChart(txs);
-  const filtered=ledgerFilter==='all'?txs:txs.filter(t=>t.paymentMethod===ledgerFilter);
+
+  // Ledger with payment filter + pagination (#28)
+  let filtered = ledgerFilter==='all' ? txs : txs.filter(t=>t.paymentMethod===ledgerFilter);
   const tbody=$('ledger-tbody'), empty=$('ledger-empty');
-  if (!txs.length) { tbody.innerHTML=''; empty.style.display='block'; return; }
+  if (!allTxs.length) { tbody.innerHTML=''; empty.style.display='block'; removeLedgerPagination(); return; }
   empty.style.display='none';
   if (!filtered.length) {
-    tbody.innerHTML=`<tr><td colspan="5" style="padding:32px;text-align:center;font-size:12.5px;color:var(--fog)">No ${esc(ledgerFilter)} transactions recorded yet.</td></tr>`;
-    return;
+    tbody.innerHTML=`<tr><td colspan="5" style="padding:32px;text-align:center;font-size:12.5px;color:var(--fog)">No ${esc(ledgerFilter==='all'?'':ledgerFilter+' ')}transactions in this period.</td></tr>`;
+    removeLedgerPagination(); return;
   }
-  tbody.innerHTML=filtered.map(tx=>{
-    const items=tx.items.map(i=>`${esc(i.name)} ×${i.qty}`).join(', ');
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / LEDGER_PAGE_SIZE));
+  S.ledgerPage = Math.min(S.ledgerPage, totalPages);
+  const page = filtered.slice((S.ledgerPage-1)*LEDGER_PAGE_SIZE, S.ledgerPage*LEDGER_PAGE_SIZE);
+
+  tbody.innerHTML = page.map(tx=>{
+    const items = tx.items.map(i=>`${esc(i.name)} ×${i.qty}`).join(', ');
     return `<tr data-txid="${esc(tx.id)}" title="Click to view receipt">
       <td><span class="tx-ts">${fmtStamp(tx.ts)}</span></td>
       <td><span class="receipt-id">${esc(tx.id)}</span></td>
@@ -1307,12 +1714,62 @@ function renderAnalytics() {
       <td style="text-align:right"><span class="tx-amt">${fmt(tx.total)}</span></td>
     </tr>`;
   }).join('');
+
+  renderLedgerPagination(totalPages, filtered.length);
+}
+
+function removeLedgerPagination() { const p=$('ledger-pagination'); if(p) p.remove(); }
+
+function renderLedgerPagination(totalPages, total) {
+  let pg = $('ledger-pagination');
+  if (!pg) {
+    pg = document.createElement('div');
+    pg.id = 'ledger-pagination';
+    pg.className = 'pagination';
+    $('ledger-wrap').appendChild(pg);
+  }
+  if (totalPages <= 1) { pg.innerHTML=''; return; }
+  const cur = S.ledgerPage;
+  let html = `<span class="pg-info">${(cur-1)*LEDGER_PAGE_SIZE+1}–${Math.min(cur*LEDGER_PAGE_SIZE,total)} of ${total}</span>`;
+  html += `<button class="pg-btn" id="ldg-pg-prev" ${cur===1?'disabled':''} aria-label="Previous page">‹</button>`;
+  for (let i=1;i<=totalPages;i++) {
+    if (totalPages>6 && i>2 && i<totalPages-1 && Math.abs(i-cur)>1) { if(i===3||i===totalPages-2) html+='<span class="pg-info">…</span>'; continue; }
+    html += `<button class="pg-btn${i===cur?' active':''}" data-ldg-pg="${i}" aria-label="Page ${i}">${i}</button>`;
+  }
+  html += `<button class="pg-btn" id="ldg-pg-next" ${cur===totalPages?'disabled':''} aria-label="Next page">›</button>`;
+  pg.innerHTML = html;
+  pg.querySelectorAll('[data-ldg-pg]').forEach(b=>b.addEventListener('click',()=>{ S.ledgerPage=parseInt(b.dataset.ldgPg); renderAnalytics(); }));
+  const prev=$('ldg-pg-prev'), next=$('ldg-pg-next');
+  if(prev) prev.addEventListener('click',()=>{ if(S.ledgerPage>1){S.ledgerPage--;renderAnalytics();} });
+  if(next) next.addEventListener('click',()=>{ if(S.ledgerPage<totalPages){S.ledgerPage++;renderAnalytics();} });
+}
+
+/* ── SKELETON (#24) ── */
+function showGridSkeleton() {
+  const grid = $('product-grid'); if (!grid) return;
+  grid.innerHTML = Array(8).fill(0).map(()=>`
+    <div class="skeleton-card">
+      <div class="skeleton sk-emoji"></div>
+      <div class="skeleton sk-line" style="width:75%;margin-bottom:6px"></div>
+      <div class="skeleton sk-line xs" style="margin-bottom:14px"></div>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div class="skeleton sk-line" style="width:42%;height:14px;margin:0"></div>
+        <div class="skeleton" style="width:28px;height:28px;border-radius:50%;margin:0"></div>
+      </div>
+    </div>`).join('');
+}
+
+function showAnalyticsSkeleton() {
+  const bsw=$('best-sellers-wrap'), ccw=$('cat-chart-wrap');
+  const sk = `<div style="padding:16px 20px">${Array(4).fill(0).map(()=>`<div style="display:flex;gap:10px;margin-bottom:12px;align-items:center"><div class="skeleton" style="width:24px;height:24px;border-radius:50%;flex-shrink:0"></div><div style="flex:1"><div class="skeleton sk-line" style="width:60%;margin-bottom:6px"></div><div class="skeleton sk-line xs" style="width:35%;margin:0"></div></div></div>`).join('')}</div>`;
+  if(bsw) bsw.innerHTML = sk;
+  if(ccw) ccw.innerHTML = sk;
 }
 
 const MEDALS=['🥇','🥈','🥉'];
 function renderBestSellers(txs) {
   const wrap=$('best-sellers-wrap');
-  if (!txs.length) { wrap.innerHTML='<div class="panel-empty">No sales data yet.</div>'; return; }
+  if (!txs.length) { wrap.innerHTML='<div class="panel-empty">No sales data yet — complete an order to see rankings.</div>'; return; }
   const agg={};
   txs.forEach(tx=>tx.items.forEach(i=>{
     if(!agg[i.id]) agg[i.id]={name:i.name,units:0,rev:0};
@@ -1330,7 +1787,7 @@ function renderBestSellers(txs) {
 
 function renderCatChart(txs) {
   const wrap=$('cat-chart-wrap');
-  if (!txs.length) { wrap.innerHTML='<div class="panel-empty">No sales data yet.</div>'; return; }
+  if (!txs.length) { wrap.innerHTML='<div class="panel-empty">No sales data yet — complete an order to see chart.</div>'; return; }
   const CAT_LABEL={coffee:'Espresso & Coffee',cold:'Cold Brews & Iced',tea:'Hot Teas',bakery:'Bakery & Pastries'};
   const catMap={};
   txs.forEach(tx=>tx.items.forEach(i=>{
@@ -1413,14 +1870,17 @@ function showReceiptModal(tx) {
     ${tx.notes?`<div style="font-size:12px;color:var(--fog);padding:8px 14px;background:rgba(192,115,24,0.06);border-radius:8px;margin-bottom:20px">📝 ${esc(tx.notes)}</div>`:''}
     <div class="modal-actions">
       <button class="btn-secondary" id="mo-cancel">Close</button>
-      <button class="btn-primary"   id="mo-print">🖨 Print / PDF</button>
+      <button class="btn-secondary" id="mo-print">🖨 Print</button>
+      <button class="btn-primary"   id="mo-pdf">📄 Export PDF (A6)</button>
     </div>`;
   openModal();
   $('mo-cancel').addEventListener('click', closeModal);
-  $('mo-print').addEventListener('click', () => printReceipt(tx));
+  $('mo-print').addEventListener('click', () => printReceipt(tx, 'thermal'));
+  $('mo-pdf').addEventListener('click',   () => exportPdfA6(tx));
 }
 
-function printReceipt(tx) {
+function printReceipt(tx, format = 'thermal') {
+  const isA6 = format === 'a6';
   const stamp = new Date(tx.ts);
   const dateStr = stamp.toLocaleDateString([], {year:'numeric',month:'long',day:'numeric'});
   const timeStr = stamp.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});
@@ -1430,9 +1890,30 @@ function printReceipt(tx) {
       <td class="item-qty">×${i.qty}</td>
       <td class="item-price">ETB ${(i.price*i.qty).toFixed(2)}</td>
     </tr>`).join('');
-  const notesBlock = tx.notes
-    ? `<div class="notes">📝 ${esc(tx.notes)}</div>`
-    : '';
+  const notesBlock = tx.notes ? `<div class="notes">📝 ${esc(tx.notes)}</div>` : '';
+
+  // Subtotal / discount / tax rows (only shown when values exist)
+  const hasBreakdown = tx.subtotal && tx.subtotal !== tx.total;
+  const totalsRows = hasBreakdown ? `
+    <div class="tot-row"><span>Subtotal</span><span>ETB ${(tx.subtotal||tx.total).toFixed(2)}</span></div>
+    ${tx.discountPct > 0 ? `<div class="tot-row" style="color:#16a34a"><span>Discount (${tx.discountPct}%)</span><span>− ETB ${(tx.discountAmt||0).toFixed(2)}</span></div>` : ''}
+    ${tx.tax ? `<div class="tot-row"><span>Tax (15%)</span><span>ETB ${tx.tax.toFixed(2)}</span></div>` : ''}
+    <div class="tot-row grand"><span>Total</span><span>ETB ${tx.total.toFixed(2)}</span></div>
+  ` : `<div class="tot-row grand"><span>Total</span><span>ETB ${tx.total.toFixed(2)}</span></div>`;
+
+  const pageCSS = isA6
+    ? `@page { size: A6 portrait; margin: 12mm; }`
+    : `@page { size: 80mm auto; margin: 8mm; }`;
+
+  const screenReceiptW = isA6 ? '370px' : '320px';
+  const baseFontSize   = isA6 ? '14px'  : '12.5px';
+  const smFontSize     = isA6 ? '12px'  : '11px';
+  const mdFontSize     = isA6 ? '13px'  : '11.5px';
+  const grandFontSize  = isA6 ? '17px'  : '15px';
+  const logoFontSize   = isA6 ? '30px'  : '26px';
+  const receiptPad     = isA6 ? '32px 28px 28px' : '28px 22px 24px';
+  const windowSize     = isA6 ? 'width=560,height=760' : 'width=420,height=650';
+
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1447,65 +1928,61 @@ function printReceipt(tx) {
     color: #111;
     display: flex;
     justify-content: center;
-    padding: 24px 12px;
+    padding: ${isA6 ? '28px 16px' : '24px 12px'};
   }
   .receipt {
-    width: 320px;
+    width: ${screenReceiptW};
     border: 1px dashed #ccc;
-    border-radius: 6px;
-    padding: 28px 22px 24px;
+    border-radius: ${isA6 ? '8px' : '6px'};
+    padding: ${receiptPad};
   }
   .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 26px;
+    font-size: ${logoFontSize};
     font-weight: 700;
     color: #4a2a14;
     text-align: center;
     letter-spacing: .5px;
   }
   .tagline {
-    font-size: 10.5px;
+    font-size: ${smFontSize};
     color: #9a8470;
     text-align: center;
-    margin-top: 2px;
+    margin-top: 3px;
     letter-spacing: 1.2px;
     text-transform: uppercase;
   }
-  .divider { border: none; border-top: 1px dashed #ccc; margin: 14px 0; }
-  .meta { font-size: 11px; color: #666; text-align: center; line-height: 1.7; }
-  .order-id { font-size: 11.5px; font-weight: 600; color: #4a2a14; text-align: center; margin: 6px 0 14px; letter-spacing: .3px; }
-  table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
-  .item-name { font-size: 12.5px; padding: 7px 2px; }
-  .item-qty  { font-size: 11.5px; color: #888; text-align: center; padding: 7px 4px; white-space: nowrap; }
-  .item-price{ font-size: 12.5px; text-align: right; font-weight: 600; padding: 7px 0 7px 4px; white-space: nowrap; }
+  .divider { border: none; border-top: 1px dashed #ccc; margin: ${isA6 ? '16px' : '14px'} 0; }
+  .meta { font-size: ${smFontSize}; color: #666; text-align: center; line-height: 1.8; }
+  .order-id { font-size: ${mdFontSize}; font-weight: 600; color: #4a2a14; text-align: center; margin: ${isA6 ? '8px 0 16px' : '6px 0 14px'}; letter-spacing: .3px; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: ${isA6 ? '16px' : '14px'}; }
+  .item-name  { font-size: ${baseFontSize}; padding: ${isA6 ? '9px 4px' : '7px 2px'}; }
+  .item-qty   { font-size: ${mdFontSize}; color: #888; text-align: center; padding: ${isA6 ? '9px 6px' : '7px 4px'}; white-space: nowrap; }
+  .item-price { font-size: ${baseFontSize}; text-align: right; font-weight: 600; padding: ${isA6 ? '9px 0 9px 6px' : '7px 0 7px 4px'}; white-space: nowrap; }
   tr { border-bottom: 1px solid #eee; }
-  .totals { margin-bottom: 14px; }
-  .tot-row { display: flex; justify-content: space-between; font-size: 12px; padding: 3px 0; color: #444; }
-  .tot-row.grand { font-size: 15px; font-weight: 700; color: #111; border-top: 1.5px solid #ccc; padding-top: 8px; margin-top: 4px; }
-  .pay-row { display: flex; justify-content: space-between; font-size: 12px; padding: 8px 12px; background: #fdf7ee; border-radius: 7px; margin-bottom: 10px; }
-  .notes { font-size: 11.5px; color: #888; padding: 7px 10px; background: #fdf5e8; border-radius: 6px; margin-bottom: 10px; }
-  .footer { font-size: 11px; color: #aaa; text-align: center; line-height: 1.8; }
-  .footer strong { color: #4a2a14; font-size: 12px; }
+  .totals { margin-bottom: ${isA6 ? '16px' : '14px'}; }
+  .tot-row { display: flex; justify-content: space-between; font-size: ${isA6 ? '13px' : '12px'}; padding: ${isA6 ? '4px 0' : '3px 0'}; color: #444; }
+  .tot-row.grand { font-size: ${grandFontSize}; font-weight: 700; color: #111; border-top: 1.5px solid #ccc; padding-top: ${isA6 ? '10px' : '8px'}; margin-top: ${isA6 ? '6px' : '4px'}; }
+  .pay-row { display: flex; justify-content: space-between; font-size: ${isA6 ? '13px' : '12px'}; padding: ${isA6 ? '10px 14px' : '8px 12px'}; background: #fdf7ee; border-radius: 7px; margin-bottom: ${isA6 ? '12px' : '10px'}; }
+  .notes { font-size: ${mdFontSize}; color: #888; padding: ${isA6 ? '9px 12px' : '7px 10px'}; background: #fdf5e8; border-radius: 6px; margin-bottom: ${isA6 ? '12px' : '10px'}; }
+  .footer { font-size: ${smFontSize}; color: #aaa; text-align: center; line-height: 1.9; }
+  .footer strong { color: #4a2a14; font-size: ${isA6 ? '13px' : '12px'}; }
   @media print {
     body { padding: 0; background: #fff; }
-    .receipt { border: none; padding: 0; width: 100%; }
-    @page { size: 80mm auto; margin: 8mm; }
+    .receipt { border: none; padding: ${isA6 ? '0' : '0'}; width: 100%; border-radius: 0; }
+    ${pageCSS}
   }
 </style>
 </head>
 <body>
 <div class="receipt">
-  <div class="logo">Breva</div>
+  <div class="logo">☕ Breva</div>
   <div class="tagline">Café &amp; Specialty Coffee</div>
   <hr class="divider">
   <div class="meta">${dateStr}<br>${timeStr}</div>
   <div class="order-id"># ${esc(tx.id)}</div>
-  <table>
-    <tbody>${itemsRows}</tbody>
-  </table>
-  <div class="totals">
-    <div class="tot-row grand"><span>Total</span><span>ETB ${tx.total.toFixed(2)}</span></div>
-  </div>
+  <table><tbody>${itemsRows}</tbody></table>
+  <div class="totals">${totalsRows}</div>
   <div class="pay-row"><span>Payment</span><strong>${esc(tx.paymentMethod||'—')}</strong></div>
   ${notesBlock}
   <hr class="divider">
@@ -1514,10 +1991,74 @@ function printReceipt(tx) {
 <script>window.onload = () => { window.print(); }<\/script>
 </body>
 </html>`;
-  const w = window.open('', '_blank', 'width=420,height=650');
-  if (!w) { toast('warning','Popup Blocked','Allow popups for this page to print receipts.',4000); return; }
+
+  const w = window.open('', '_blank', windowSize);
+  if (!w) { toast('warning','Popup Blocked','Allow popups for this page to open receipts.',4000); return; }
   w.document.write(html);
   w.document.close();
+}
+
+function exportPdfA6(tx) {
+  if (typeof html2pdf === 'undefined') {
+    toast('error', 'PDF Error', 'PDF library not loaded — check your internet connection.', 4000);
+    return;
+  }
+
+  const stamp  = new Date(tx.ts);
+  const dateStr = stamp.toLocaleDateString([], {year:'numeric', month:'long', day:'numeric'});
+  const timeStr = stamp.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'});
+
+  const itemRows = tx.items.map(i => `
+    <tr>
+      <td style="padding:8px 4px 8px 0;font-size:13px;border-bottom:1px solid #f0e8dc">${esc(i.emoji||'')} ${esc(i.name)}</td>
+      <td style="padding:8px 5px;font-size:12px;color:#9a8470;text-align:center;border-bottom:1px solid #f0e8dc;white-space:nowrap">×${i.qty}</td>
+      <td style="padding:8px 0 8px 5px;font-size:13px;font-weight:700;text-align:right;border-bottom:1px solid #f0e8dc;white-space:nowrap">ETB ${(i.price*i.qty).toFixed(2)}</td>
+    </tr>`).join('');
+
+  const hasBreakdown = tx.subtotal != null && tx.subtotal !== tx.total;
+  const totalsHTML = hasBreakdown ? `
+    <div style="display:flex;justify-content:space-between;font-size:12px;color:#666;padding:3px 0"><span>Subtotal</span><span>ETB ${(tx.subtotal||tx.total).toFixed(2)}</span></div>
+    ${tx.discountPct > 0 ? `<div style="display:flex;justify-content:space-between;font-size:12px;color:#16a34a;padding:3px 0"><span>Discount (${tx.discountPct}%)</span><span>− ETB ${(tx.discountAmt||0).toFixed(2)}</span></div>` : ''}
+    ${tx.tax ? `<div style="display:flex;justify-content:space-between;font-size:12px;color:#666;padding:3px 0"><span>Tax (15%)</span><span>ETB ${tx.tax.toFixed(2)}</span></div>` : ''}
+    <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:700;color:#111;padding-top:8px;border-top:1.5px solid #ccc;margin-top:4px"><span>Total</span><span>ETB ${tx.total.toFixed(2)}</span></div>
+  ` : `
+    <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:700;color:#111;padding-top:8px;border-top:1.5px solid #ccc;margin-top:4px"><span>Total</span><span>ETB ${tx.total.toFixed(2)}</span></div>
+  `;
+
+  // Build receipt DOM element off-screen (html2pdf renders whatever is in the DOM)
+  const el = document.createElement('div');
+  el.style.cssText = 'position:absolute;left:-9999px;top:0;width:321px;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#111;padding:0;line-height:1.4';
+  el.innerHTML = `
+    <div style="text-align:center;margin-bottom:14px">
+      <div style="font-family:Georgia,'Times New Roman',serif;font-size:26px;font-weight:700;color:#4a2a14;letter-spacing:.5px">☕ Breva</div>
+      <div style="font-size:10px;color:#9a8470;letter-spacing:1.5px;text-transform:uppercase;margin-top:3px">Café &amp; Specialty Coffee</div>
+    </div>
+    <hr style="border:none;border-top:1px dashed #ccc;margin:12px 0">
+    <div style="text-align:center;font-size:11px;color:#666;line-height:1.8;margin-bottom:6px">${dateStr}<br>${timeStr}</div>
+    <div style="text-align:center;font-size:12px;font-weight:600;color:#4a2a14;margin-bottom:14px;letter-spacing:.3px"># ${esc(tx.id)}</div>
+    <hr style="border:none;border-top:1px dashed #ccc;margin:0 0 10px">
+    <table style="width:100%;border-collapse:collapse;margin-bottom:12px"><tbody>${itemRows}</tbody></table>
+    <div style="margin-bottom:12px">${totalsHTML}</div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;padding:9px 12px;background:#fdf7ee;border-radius:6px;margin-bottom:${tx.notes?'10px':'14px'}">
+      <span style="color:#666">Payment</span><strong>${esc(tx.paymentMethod||'—')}</strong>
+    </div>
+    ${tx.notes ? `<div style="font-size:11px;color:#888;padding:7px 10px;background:#fdf5e8;border-radius:5px;margin-bottom:14px">📝 ${esc(tx.notes)}</div>` : ''}
+    <hr style="border:none;border-top:1px dashed #ccc;margin:0 0 10px">
+    <div style="text-align:center;font-size:11px;color:#aaa;line-height:1.9">
+      <strong style="color:#4a2a14;font-size:12px">Thank you for visiting Breva!</strong><br>Please come again ☕
+    </div>`;
+
+  document.body.appendChild(el);
+
+  html2pdf().set({
+    margin:      10,
+    filename:    `Breva-Receipt-${tx.id}.pdf`,
+    image:       { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true, logging: false },
+    jsPDF:       { unit: 'mm', format: 'a6', orientation: 'portrait' }
+  }).from(el).save()
+    .then(()  => document.body.removeChild(el))
+    .catch(() => { document.body.removeChild(el); toast('error','PDF Error','Could not generate PDF.',4000); });
 }
 
 /* ── EXPORT CSV ── */
@@ -1609,9 +2150,24 @@ function stopAutoSync() {
 
 /* ── AUTH ── */
 async function initAuth() {
-  showAuthScreen();
+  // Keep everything hidden while we resolve the session — no login flash.
+  $('auth-screen').style.display = 'none';
+  $('sidebar').style.visibility = 'hidden';
+  $('main').style.visibility = 'hidden';
+
+  // Restore local-admin session (it lives only in localStorage, not Supabase).
+  if (localStorage.getItem(LS_LA_SESSION)) {
+    await handleLocalAdmin(true);
+    return; // skip Supabase — onAuthStateChange not needed for local admin
+  }
+
   const { data: { session } } = await sb.auth.getSession();
-  if (session) await handleSession(session);
+  if (session) {
+    await handleSession(session);
+  } else {
+    showAuthScreen();
+  }
+
   sb.auth.onAuthStateChange(async (event, session) => {
     if (event === 'SIGNED_IN' && session) await handleSession(session);
     if (event === 'SIGNED_OUT') { currentUser = null; showAuthScreen(); }
@@ -1622,10 +2178,11 @@ async function handleSession(session) {
   currentUser = session.user;
   const { data: profile } = await sb.from('profiles').select('role,display_name').eq('id', currentUser.id).single();
   currentRole = profile?.role || 'cashier';
-  const name = profile?.display_name || currentUser.email.split('@')[0];
+  const name = profile?.display_name || currentUser.email.split('@')[0].replace(/\./g, ' ');
   hideAuthScreen();
   renderUserBadge(name, currentRole);
   applyRoleRestrictions(currentRole);
+  showGridSkeleton(); showAnalyticsSkeleton(); // skeleton while loading (#24)
   await loadFromDB();
   subscribeRealtime();
   startAutoSync();
@@ -1634,24 +2191,33 @@ async function handleSession(session) {
   setSyncStatus('ok');
 }
 
-async function doSignIn() {
-  const email = $('auth-email').value.trim(), password = $('auth-password').value;
-  if (!email || !password) { showAuthError('Please fill in all fields.'); return; }
-  if (email === 'admin' && password === '123') { await handleLocalAdmin(); return; }
-  setAuthBusy('auth-signin-btn', true, 'Signing in…');
-  const { error } = await sb.auth.signInWithPassword({ email, password });
-  setAuthBusy('auth-signin-btn', false, 'Sign In');
-  if (error) showAuthError(error.message);
+// Converts a display name to a deterministic internal email Supabase can use.
+// Users never see or type this — it's derived from their name every time.
+function toFakeEmail(name) {
+  const slug = name.toLowerCase().trim().replace(/\s+/g, '.').replace(/[^a-z0-9.]/g, '');
+  return slug + '@breva.app';
 }
 
-async function handleLocalAdmin() {
+async function doSignIn() {
+  const username = $('auth-username').value.trim(), password = $('auth-password').value;
+  if (!username || !password) { showAuthError('Please fill in all fields.'); return; }
+  if (username.toLowerCase() === 'admin' && password === '123') { await handleLocalAdmin(); return; }
   setAuthBusy('auth-signin-btn', true, 'Signing in…');
+  const { error } = await sb.auth.signInWithPassword({ email: toFakeEmail(username), password });
+  setAuthBusy('auth-signin-btn', false, 'Sign In');
+  if (error) showAuthError('Name or password is incorrect.');
+}
+
+async function handleLocalAdmin(fromRestore = false) {
+  if (!fromRestore) setAuthBusy('auth-signin-btn', true, 'Signing in…');
+  localStorage.setItem(LS_LA_SESSION, '1');
   currentUser = { id: 'local-admin', email: 'admin' };
   currentRole = 'manager';
   hideAuthScreen();
   renderUserBadge('Admin', 'manager');
   applyRoleRestrictions('manager');
   localAdminLoad();
+  showGridSkeleton(); showAnalyticsSkeleton();
   renderCatTabs(); renderGrid(); renderCart();
   setSyncStatus('syncing');
   const cloudOk = await loadFromDB();
@@ -1659,29 +2225,33 @@ async function handleLocalAdmin() {
   else { setSyncStatus('local'); }
   S.cart = [];
   renderGrid(); renderCart();
-  setAuthBusy('auth-signin-btn', false, 'Sign In');
+  if (!fromRestore) setAuthBusy('auth-signin-btn', false, 'Sign In');
 }
 
 async function doSignUp() {
-  const name = $('auth-name').value.trim();
-  const email = $('auth-su-email').value.trim();
+  const name     = $('auth-name').value.trim();
   const password = $('auth-su-password').value;
-  const roleEl = document.querySelector('#signup-roles .pay-btn.selected');
-  const role = roleEl?.dataset.role || 'cashier';
-  if (!name || !email || !password) { showAuthError('Please fill in all fields.'); return; }
+  if (!name || !password) { showAuthError('Please fill in all fields.'); return; }
+  if (password.length < 6) { showAuthError('Password must be at least 6 characters.'); return; }
+  const email = toFakeEmail(name);
   setAuthBusy('auth-signup-btn', true, 'Creating account…');
   const { data, error } = await sb.auth.signUp({ email, password });
   setAuthBusy('auth-signup-btn', false, 'Create Account');
   if (error) { showAuthError(error.message); return; }
   if (data.user) {
-    await sb.from('profiles').insert({ id: data.user.id, email, role, display_name: name });
+    await sb.from('profiles').insert({ id: data.user.id, role: 'cashier', display_name: name });
   }
-  if (!data.session) showAuthError('Check your email to confirm your account, then sign in.', 'info');
+  if (data.session) {
+    // Email confirmation disabled — signed in immediately
+  } else {
+    showAuthError('Account created! Sign in with your name and password.', 'info');
+  }
 }
 
 async function doSignOut() {
   stopAutoSync();
   if (isLocalAdmin()) {
+    localStorage.removeItem(LS_LA_SESSION);
     currentUser = null; currentRole = 'cashier';
     S.cart = []; S.transactions = []; S.menu = [];
     renderCart(); renderGrid(); renderCatTabs();
@@ -1722,7 +2292,21 @@ function renderUserBadge(name, role) {
       </div>
       <button class="sb-signout" id="signout-btn" title="Sign out">⏻</button>
     </div>`;
-  $('signout-btn').addEventListener('click', doSignOut);
+  $('signout-btn').addEventListener('click', ()=>{
+    $('modal-box').innerHTML=`
+      <button class="modal-x" id="mo-x" aria-label="Close">×</button>
+      <div class="modal-icon" aria-hidden="true">⏻</div>
+      <div class="modal-title" id="modal-title-el">Sign Out?</div>
+      <div class="modal-body">You'll need to sign in again to access the system.</div>
+      <div class="modal-actions">
+        <button class="btn-secondary" id="mo-cancel">Stay</button>
+        <button class="btn-primary" id="mo-confirm">Sign Out</button>
+      </div>`;
+    openModal();
+    $('mo-x').addEventListener('click',closeModal);
+    $('mo-cancel').addEventListener('click',closeModal);
+    $('mo-confirm').addEventListener('click',()=>{ closeModal(); doSignOut(); });
+  });
 }
 
 function applyRoleRestrictions(role) {
@@ -1741,7 +2325,7 @@ function setSyncStatus(status) {
 /* ── AUTH UI EVENTS ── */
 $('auth-signin-btn').addEventListener('click', doSignIn);
 $('auth-signup-btn').addEventListener('click', doSignUp);
-$('auth-email').addEventListener('keydown', e => { if (e.key === 'Enter') $('auth-password').focus(); });
+$('auth-username').addEventListener('keydown', e => { if (e.key === 'Enter') $('auth-password').focus(); });
 $('auth-password').addEventListener('keydown', e => { if (e.key === 'Enter') doSignIn(); });
 
 $('to-signup').addEventListener('click', () => {
@@ -1754,10 +2338,53 @@ $('to-signin').addEventListener('click', () => {
   $('auth-panel-signin').style.display = '';
   $('auth-error').style.display = 'none';
 });
-document.getElementById('signup-roles').addEventListener('click', e => {
-  const btn = e.target.closest('.pay-btn'); if (!btn) return;
-  document.querySelectorAll('#signup-roles .pay-btn').forEach(b => { b.classList.remove('selected'); b.setAttribute('aria-checked','false'); });
-  btn.classList.add('selected'); btn.setAttribute('aria-checked','true');
+
+/* ── DATE FILTER EVENTS (#18) ── */
+$('date-filter-bar').addEventListener('click', e=>{
+  const pill=e.target.closest('.dfp'); if(!pill) return;
+  S.dateFilter = pill.dataset.df; S.ledgerPage = 1;
+  document.querySelectorAll('.dfp').forEach(p=>p.classList.toggle('active',p.dataset.df===S.dateFilter));
+  if(S.activeTab==='analytics') renderAnalytics();
+});
+$('date-filter-bar').addEventListener('keydown', e=>{ if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('dfp')){e.preventDefault();e.target.click();} });
+
+/* ── INVENTORY SORT EVENTS (#22) ── */
+$('inv-table').querySelector('thead').addEventListener('click', e=>{
+  const th=e.target.closest('th.sortable'); if(!th) return;
+  const field=th.dataset.sort;
+  if(S.invSort===field) S.invSortDir = S.invSortDir==='asc'?'desc':'asc';
+  else { S.invSort=field; S.invSortDir='asc'; }
+  S.invPage=1;
+  renderInventory();
+});
+
+/* ── FAB CART CLICK (#11) ── */
+$('fab-cart').addEventListener('click', ()=>{
+  // On mobile, scroll cart panel into view or switch focus to it
+  const cart = document.querySelector('.cart-panel');
+  if(cart){ cart.scrollIntoView({behavior:'smooth',block:'start'}); }
+});
+
+/* ── KEYBOARD SHORTCUTS (#25) ── */
+document.addEventListener('keydown', e=>{
+  const tag = document.activeElement?.tagName;
+  const inInput = tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT';
+  // '/' — focus search
+  if(e.key==='/'&&!inInput&&S.activeTab==='pos'){
+    e.preventDefault(); $('search-inp').focus();
+  }
+  // 'N' — clear cart / new order
+  if(e.key==='n'&&!inInput&&S.activeTab==='pos'){
+    e.preventDefault(); clearCart();
+  }
+  // 'C' — checkout
+  if(e.key==='c'&&!inInput&&S.activeTab==='pos'){
+    e.preventDefault(); if(S.cart.length) processCheckout();
+  }
+  // '1','2','3' — switch tabs
+  if(e.key==='1'&&!inInput){ switchTab('pos'); }
+  if(e.key==='2'&&!inInput){ if(currentRole!=='cashier') switchTab('inventory'); }
+  if(e.key==='3'&&!inInput){ if(currentRole!=='cashier') switchTab('analytics'); }
 });
 
 /* ── INIT ── */
