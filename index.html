@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Breva — Café Management System</title>
+  <title>Coffee Shop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <style>
@@ -597,6 +597,53 @@
     .dfp:focus-visible { outline:2px solid var(--honey);outline-offset:2px; }
     .dfp.active { background:var(--espresso);color:var(--amber);border-color:var(--espresso);box-shadow:0 2px 8px rgba(22,13,6,.18); }
 
+    /* ── INGREDIENT CATEGORY PILLS ── */
+    .cat-pill[data-cat="Coffee"]      { background:rgba(192,115,24,.13); color:#7c3e0c; }
+    .cat-pill[data-cat="Dairy"]       { background:rgba(99,102,241,.11); color:#4338ca; }
+    .cat-pill[data-cat="Sweeteners"]  { background:rgba(245,158,11,.11); color:#92400e; }
+    .cat-pill[data-cat="Syrups"]      { background:rgba(239,68,68,.1);   color:#b91c1c; }
+    .cat-pill[data-cat="Tea & Herbs"] { background:rgba(20,184,166,.11); color:#0f766e; }
+    .cat-pill[data-cat="Bakery"]      { background:rgba(249,115,22,.11); color:#c2410c; }
+    .cat-pill[data-cat="Supplies"]    { background:rgba(107,114,128,.1); color:#374151; }
+    .cat-pill[data-cat="Other"]       { background:rgba(156,163,175,.1); color:#4b5563; }
+
+    /* ── INGREDIENT TABLE ── */
+    .unit-badge { display:inline-block;padding:2px 8px;border-radius:99px;font-size:10.5px;font-weight:600;background:var(--latte);color:var(--bark);letter-spacing:.3px; }
+    .ing-status { display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:99px; }
+    .ing-status.good     { background:rgba(22,163,74,.1);  color:#15803d; }
+    .ing-status.low      { background:rgba(217,119,6,.11); color:#92400e; }
+    .ing-status.critical { background:rgba(220,38,38,.1);  color:#b91c1c; }
+    .ing-status.good::before     { content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:#22c55e;margin-right:2px; }
+    .ing-status.low::before      { content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:#f59e0b;margin-right:2px; }
+    .ing-status.critical::before { content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:#ef4444;margin-right:2px;animation:blink 1.4s infinite; }
+
+    /* ── LOW STOCK ALERT BANNER ── */
+    .low-stock-banner { display:flex;align-items:center;gap:10px;padding:11px 16px;background:rgba(217,119,6,.09);border:1px solid rgba(217,119,6,.22);border-radius:11px;margin-bottom:18px;font-size:12.5px;color:#92400e; }
+    .low-stock-banner strong { font-weight:700; }
+
+    /* ── RESTOCK QUICK BTN ── */
+    .restock-quick-btn { padding:6px 12px;background:rgba(22,163,74,.1);color:#15803d;border:1.5px solid rgba(22,163,74,.22);border-radius:7px;font-size:12px;font-weight:500;transition:var(--ease);white-space:nowrap; }
+    .restock-quick-btn:hover { background:rgba(22,163,74,.18);border-color:rgba(22,163,74,.35); }
+
+    /* ── INGREDIENT TABLE ROW ── */
+    .ing-table { width:100%;border-collapse:collapse; }
+    .ing-table thead th { padding:12px 18px;text-align:left;font-size:10.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--fog);background:var(--cream);border-bottom:1.5px solid var(--stone); }
+    .ing-table thead th.sortable { cursor:pointer;user-select:none; }
+    .ing-table thead th.sortable:hover { color:var(--honey); }
+    .ing-table tbody tr { border-bottom:1px solid var(--latte);transition:background .12s; }
+    .ing-table tbody tr:last-child { border-bottom:none; }
+    .ing-table tbody tr:hover { background:#fdfaf5; }
+    .ing-table td { padding:13px 18px;font-size:13px;vertical-align:middle; }
+
+    /* ── ADD INGREDIENT BTN ── */
+    .btn-add-ingredient { padding:8px 16px;background:linear-gradient(135deg,#0f766e,#0d9488);color:#fff;border:none;border-radius:9px;font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:6px;cursor:pointer;transition:var(--ease);white-space:nowrap;box-shadow:0 2px 10px rgba(15,118,110,.22);font-family:inherit; }
+    .btn-add-ingredient:hover { background:linear-gradient(135deg,#0d9488,#0f766e);box-shadow:0 4px 16px rgba(15,118,110,.3);transform:translateY(-1px); }
+    .btn-add-ingredient:active { transform:scale(.98); }
+
+    /* ── FORM SELECT ── */
+    .form-sel { width:100%;padding:10px 14px;border:1.5px solid var(--stone);border-radius:9px;font-size:14px;color:var(--txt);background:var(--cream);outline:none;transition:var(--ease);margin-bottom:12px;appearance:none;cursor:pointer; }
+    .form-sel:focus { border-color:var(--honey);box-shadow:0 0 0 3px rgba(192,115,24,.1); }
+
     /* ── INVENTORY SORT (#22) ── */
     .inv-table thead th.sortable { cursor:pointer;user-select:none; }
     .inv-table thead th.sortable:hover { color:var(--honey); }
@@ -644,7 +691,7 @@
 
 <div id="auth-screen">
   <div class="auth-card">
-    <div class="auth-logo">☕ Breva</div>
+    <div class="auth-logo">Coffee Shop</div>
     <div class="auth-subtitle">Café OS</div>
     <div id="auth-error" class="auth-error"></div>
 
@@ -670,7 +717,7 @@
   <div class="sb-logo">
     <div class="sb-logo-icon" aria-hidden="true">☕</div>
     <div>
-      <div class="sb-logo-name">Breva</div>
+      <div class="sb-logo-name">Coffee Shop</div>
       <div class="sb-logo-sub">Café OS</div>
     </div>
   </div>
@@ -680,9 +727,14 @@
       <svg class="nav-icon" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
       Point of Sale
     </div>
+    <div class="nav-item" role="button" tabindex="0" data-tab="menu" id="nav-menu">
+      <svg class="nav-icon" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+      Menu
+    </div>
     <div class="nav-item" role="button" tabindex="0" data-tab="inventory" id="nav-inventory">
       <svg class="nav-icon" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
       Inventory
+      <span class="nav-badge" id="nav-low-stock-badge" style="display:none"></span>
     </div>
     <div class="nav-item" role="button" tabindex="0" data-tab="analytics">
       <svg class="nav-icon" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
@@ -727,7 +779,7 @@
             <span class="shortcut-item"><kbd>/</kbd> Search</span>
             <span class="shortcut-item"><kbd>N</kbd> New order</span>
             <span class="shortcut-item"><kbd>C</kbd> Checkout</span>
-            <span class="shortcut-item"><kbd>1</kbd>–<kbd>3</kbd> Switch tab</span>
+            <span class="shortcut-item"><kbd>1</kbd>–<kbd>4</kbd> Switch tab</span>
           </div>
           <div class="search-wrap">
             <svg class="search-icon" aria-hidden="true" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
@@ -784,31 +836,87 @@
       </div>
     </div>
 
-    <!-- INVENTORY TAB -->
-    <div class="tab-view" id="tab-inventory" role="region" aria-label="Inventory Management">
+    <!-- MENU TAB (product management) -->
+    <div class="tab-view" id="tab-menu" role="region" aria-label="Menu Management">
       <div class="sec-hdr">
         <div>
-          <div class="sec-title">Inventory</div>
-          <div class="sec-sub">Manage your products — they appear live in the POS</div>
+          <div class="sec-title">Menu Management</div>
+          <div class="sec-sub">Manage your sellable items — they appear live in the POS</div>
         </div>
-        <button class="btn-add-product" id="add-product-btn" aria-label="Add new product">
+        <button class="btn-add-product" id="add-product-btn" aria-label="Add new menu item">
           <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
-          Add Product
+          Add Item
         </button>
       </div>
       <div class="inv-wrap" id="inv-wrap">
-        <table class="inv-table" id="inv-table" aria-label="Product list">
+        <table class="inv-table" id="inv-table" aria-label="Menu item list">
           <thead><tr>
-            <th scope="col" class="sortable" data-sort="name">Product <span class="sort-arr" id="sort-arr-name">↕</span></th>
+            <th scope="col" class="sortable" data-sort="name">Item <span class="sort-arr" id="sort-arr-name">↕</span></th>
             <th scope="col" class="sortable" data-sort="cat">Category <span class="sort-arr" id="sort-arr-cat"></span></th>
             <th scope="col" class="sortable" data-sort="price">Price <span class="sort-arr" id="sort-arr-price"></span></th>
-            <th scope="col">Stock</th>
             <th scope="col">Actions</th>
           </tr></thead>
           <tbody id="inv-tbody"></tbody>
         </table>
         <div id="inv-empty" style="display:none;padding:48px;text-align:center;font-size:13px;color:var(--fog)">
-          No products yet — add your first product to get started.
+          No menu items yet — add your first item to get started.
+        </div>
+      </div>
+    </div>
+
+    <!-- INVENTORY TAB (ingredients / raw materials) -->
+    <div class="tab-view" id="tab-inventory" role="region" aria-label="Ingredient Inventory">
+      <div class="sec-hdr">
+        <div>
+          <div class="sec-title">Ingredient Inventory</div>
+          <div class="sec-sub">Track raw materials used to prepare your drinks and food</div>
+        </div>
+        <button class="btn-add-ingredient" id="add-ingredient-btn" aria-label="Add new ingredient">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+          Add Ingredient
+        </button>
+      </div>
+
+      <div id="ing-low-banner" class="low-stock-banner" style="display:none">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+        <span id="ing-low-banner-txt"></span>
+      </div>
+
+      <div class="ing-search-row">
+        <div class="search-wrap" style="margin-bottom:0;flex:1">
+          <svg class="search-icon" aria-hidden="true" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="search" id="ing-search-inp" class="search-inp" placeholder="Search ingredients…" aria-label="Search ingredients" autocomplete="off">
+          <button class="search-clear" id="ing-search-clear" aria-label="Clear search">×</button>
+        </div>
+      </div>
+
+      <div class="cat-tabs" id="ing-cat-tabs" role="tablist" aria-label="Ingredient categories" style="margin-bottom:18px">
+        <div class="cat-tab active" role="tab" tabindex="0" data-ingcat="all" aria-selected="true">All</div>
+        <div class="cat-tab" role="tab" tabindex="0" data-ingcat="Coffee"      aria-selected="false">☕ Coffee</div>
+        <div class="cat-tab" role="tab" tabindex="0" data-ingcat="Dairy"       aria-selected="false">🥛 Dairy</div>
+        <div class="cat-tab" role="tab" tabindex="0" data-ingcat="Sweeteners"  aria-selected="false">🍬 Sweeteners</div>
+        <div class="cat-tab" role="tab" tabindex="0" data-ingcat="Syrups"      aria-selected="false">🍶 Syrups</div>
+        <div class="cat-tab" role="tab" tabindex="0" data-ingcat="Tea & Herbs" aria-selected="false">🍵 Tea &amp; Herbs</div>
+        <div class="cat-tab" role="tab" tabindex="0" data-ingcat="Bakery"      aria-selected="false">🥐 Bakery</div>
+        <div class="cat-tab" role="tab" tabindex="0" data-ingcat="Supplies"    aria-selected="false">📦 Supplies</div>
+        <div class="cat-tab" role="tab" tabindex="0" data-ingcat="Other"       aria-selected="false">🗂 Other</div>
+      </div>
+
+      <div class="inv-wrap" id="ing-wrap">
+        <table class="ing-table" id="ing-table" aria-label="Ingredient list">
+          <thead><tr>
+            <th scope="col" class="sortable" data-ingsort="name">Ingredient <span class="sort-arr" id="ing-sort-arr-name">↕</span></th>
+            <th scope="col" class="sortable" data-ingsort="category">Category <span class="sort-arr" id="ing-sort-arr-category"></span></th>
+            <th scope="col">Unit</th>
+            <th scope="col" class="sortable" data-ingsort="stock">Current Stock <span class="sort-arr" id="ing-sort-arr-stock"></span></th>
+            <th scope="col">Min Stock</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+          </tr></thead>
+          <tbody id="ing-tbody"></tbody>
+        </table>
+        <div id="ing-empty" style="display:none;padding:48px;text-align:center;font-size:13px;color:var(--fog)">
+          No ingredients yet — add your first ingredient to get started.
         </div>
       </div>
     </div>
@@ -941,14 +1049,20 @@ function localAdminSave() {
   try {
     localStorage.setItem(LS_KEY + '_la_menu', JSON.stringify(S.menu));
     localStorage.setItem(LS_KEY + '_la_txs',  JSON.stringify(S.transactions.map(t => ({...t, ts: t.ts.toISOString()}))));
+    localStorage.setItem(LS_KEY + '_la_ing',  JSON.stringify(S.ingredients));
   } catch {}
 }
 function localAdminLoad() {
   try {
     const m = localStorage.getItem(LS_KEY + '_la_menu');
     const t = localStorage.getItem(LS_KEY + '_la_txs');
+    const i = localStorage.getItem(LS_KEY + '_la_ing');
     if (m) S.menu = JSON.parse(m);
     if (t) S.transactions = JSON.parse(t).map(tx => ({...tx, ts: new Date(tx.ts)}));
+    if (i) S.ingredients = JSON.parse(i);
+    // Seed defaults on first run
+    if (!S.menu.length)        S.menu = [...DEFAULT_MENU];
+    if (!S.ingredients.length) S.ingredients = [...DEFAULT_INGREDIENTS];
   } catch {}
 }
 
@@ -957,13 +1071,73 @@ const S = {
   cart:         [],
   transactions: [],
   menu:         [],
+  ingredients:  [],
   discountPct:  0,
   invSort:      'name',
   invSortDir:   'asc',
   invPage:      1,
+  ingSort:      'name',
+  ingSortDir:   'asc',
+  ingPage:      1,
+  ingCat:       'all',
+  ingSearch:    '',
   dateFilter:   'all',
   ledgerPage:   1,
 };
+
+const DEFAULT_INGREDIENTS = [
+  { id:'i_001', name:'Espresso Beans',     emoji:'☕', category:'Coffee',      unit:'kg',    stock:5,   minStock:1,   maxStock:20  },
+  { id:'i_002', name:'Decaf Coffee Beans', emoji:'☕', category:'Coffee',      unit:'kg',    stock:2,   minStock:0.5, maxStock:10  },
+  { id:'i_003', name:'Cocoa Powder',       emoji:'🍫', category:'Coffee',      unit:'g',     stock:300, minStock:100, maxStock:1000},
+  { id:'i_004', name:'Whole Milk',         emoji:'🥛', category:'Dairy',       unit:'L',     stock:15,  minStock:3,   maxStock:50  },
+  { id:'i_005', name:'Oat Milk',           emoji:'🌾', category:'Dairy',       unit:'L',     stock:8,   minStock:2,   maxStock:20  },
+  { id:'i_006', name:'Almond Milk',        emoji:'🌰', category:'Dairy',       unit:'L',     stock:6,   minStock:1,   maxStock:15  },
+  { id:'i_007', name:'Heavy Cream',        emoji:'🍶', category:'Dairy',       unit:'L',     stock:4,   minStock:1,   maxStock:10  },
+  { id:'i_008', name:'Whipped Cream',      emoji:'🍦', category:'Dairy',       unit:'L',     stock:3,   minStock:0.5, maxStock:8   },
+  { id:'i_009', name:'White Sugar',        emoji:'🧂', category:'Sweeteners',  unit:'kg',    stock:10,  minStock:2,   maxStock:25  },
+  { id:'i_010', name:'Brown Sugar',        emoji:'🍯', category:'Sweeteners',  unit:'kg',    stock:5,   minStock:1,   maxStock:15  },
+  { id:'i_011', name:'Vanilla Syrup',      emoji:'🍶', category:'Syrups',      unit:'L',     stock:2,   minStock:0.5, maxStock:5   },
+  { id:'i_012', name:'Caramel Syrup',      emoji:'🍮', category:'Syrups',      unit:'L',     stock:2,   minStock:0.5, maxStock:5   },
+  { id:'i_013', name:'Hazelnut Syrup',     emoji:'🌰', category:'Syrups',      unit:'L',     stock:1.5, minStock:0.3, maxStock:5   },
+  { id:'i_014', name:'Simple Syrup',       emoji:'💧', category:'Syrups',      unit:'L',     stock:3,   minStock:0.5, maxStock:8   },
+  { id:'i_015', name:'Matcha Powder',      emoji:'🍵', category:'Tea & Herbs', unit:'g',     stock:500, minStock:100, maxStock:2000},
+  { id:'i_016', name:'Earl Grey Tea Bags', emoji:'🫖', category:'Tea & Herbs', unit:'units', stock:200, minStock:50,  maxStock:500 },
+  { id:'i_017', name:'Green Tea Bags',     emoji:'🍃', category:'Tea & Herbs', unit:'units', stock:150, minStock:30,  maxStock:400 },
+  { id:'i_018', name:'Chamomile Tea Bags', emoji:'🌼', category:'Tea & Herbs', unit:'units', stock:100, minStock:25,  maxStock:300 },
+  { id:'i_019', name:'All-Purpose Flour',  emoji:'🌾', category:'Bakery',      unit:'kg',    stock:8,   minStock:2,   maxStock:25  },
+  { id:'i_020', name:'Butter',             emoji:'🧈', category:'Bakery',      unit:'kg',    stock:3,   minStock:0.5, maxStock:10  },
+  { id:'i_021', name:'Eggs',               emoji:'🥚', category:'Bakery',      unit:'units', stock:48,  minStock:12,  maxStock:120 },
+  { id:'i_022', name:'Baking Powder',      emoji:'🥄', category:'Bakery',      unit:'g',     stock:500, minStock:100, maxStock:1000},
+  { id:'i_023', name:'Chocolate Chips',    emoji:'🍫', category:'Bakery',      unit:'kg',    stock:2,   minStock:0.3, maxStock:5   },
+  { id:'i_024', name:'Ice',                emoji:'🧊', category:'Supplies',    unit:'kg',    stock:20,  minStock:5,   maxStock:50  },
+  { id:'i_025', name:'Paper Cups (Small)', emoji:'🥤', category:'Supplies',    unit:'units', stock:300, minStock:50,  maxStock:600 },
+  { id:'i_026', name:'Paper Cups (Large)', emoji:'🧋', category:'Supplies',    unit:'units', stock:200, minStock:30,  maxStock:400 },
+  { id:'i_027', name:'Lids',               emoji:'🔴', category:'Supplies',    unit:'units', stock:400, minStock:80,  maxStock:800 },
+  { id:'i_028', name:'Stirring Sticks',    emoji:'🥢', category:'Supplies',    unit:'units', stock:500, minStock:100, maxStock:1000},
+];
+
+const DEFAULT_MENU = [
+  { id:'m_d01', name:'Espresso',           emoji:'☕', cat:'coffee',  cat_lbl:'Espresso & Coffee',  price:45 },
+  { id:'m_d02', name:'Americano',          emoji:'☕', cat:'coffee',  cat_lbl:'Espresso & Coffee',  price:55 },
+  { id:'m_d03', name:'Cappuccino',         emoji:'☕', cat:'coffee',  cat_lbl:'Espresso & Coffee',  price:75 },
+  { id:'m_d04', name:'Café Latte',         emoji:'☕', cat:'coffee',  cat_lbl:'Espresso & Coffee',  price:80 },
+  { id:'m_d05', name:'Flat White',         emoji:'☕', cat:'coffee',  cat_lbl:'Espresso & Coffee',  price:80 },
+  { id:'m_d06', name:'Oat Milk Latte',     emoji:'🌾', cat:'coffee',  cat_lbl:'Espresso & Coffee',  price:95 },
+  { id:'m_d07', name:'Caramel Macchiato',  emoji:'🍮', cat:'coffee',  cat_lbl:'Espresso & Coffee',  price:95 },
+  { id:'m_d08', name:'Hazelnut Latte',     emoji:'🌰', cat:'coffee',  cat_lbl:'Espresso & Coffee',  price:95 },
+  { id:'m_d09', name:'Matcha Latte',       emoji:'🍵', cat:'tea',     cat_lbl:'Hot Teas & Matcha',  price:85 },
+  { id:'m_d10', name:'Earl Grey Tea',      emoji:'🫖', cat:'tea',     cat_lbl:'Hot Teas & Matcha',  price:60 },
+  { id:'m_d11', name:'Green Tea',          emoji:'🍃', cat:'tea',     cat_lbl:'Hot Teas & Matcha',  price:55 },
+  { id:'m_d12', name:'Chamomile Tea',      emoji:'🌼', cat:'tea',     cat_lbl:'Hot Teas & Matcha',  price:60 },
+  { id:'m_d13', name:'Iced Americano',     emoji:'🧊', cat:'cold',    cat_lbl:'Cold & Iced Drinks', price:65 },
+  { id:'m_d14', name:'Iced Latte',         emoji:'🥤', cat:'cold',    cat_lbl:'Cold & Iced Drinks', price:90 },
+  { id:'m_d15', name:'Cold Brew',          emoji:'🧋', cat:'cold',    cat_lbl:'Cold & Iced Drinks', price:95 },
+  { id:'m_d16', name:'Iced Matcha',        emoji:'🍵', cat:'cold',    cat_lbl:'Cold & Iced Drinks', price:90 },
+  { id:'m_d17', name:'Croissant',          emoji:'🥐', cat:'bakery',  cat_lbl:'Bakery & Pastries',  price:55 },
+  { id:'m_d18', name:'Chocolate Muffin',   emoji:'🧁', cat:'bakery',  cat_lbl:'Bakery & Pastries',  price:65 },
+  { id:'m_d19', name:'Banana Bread Slice', emoji:'🍞', cat:'bakery',  cat_lbl:'Bakery & Pastries',  price:70 },
+  { id:'m_d20', name:'Cinnamon Roll',      emoji:'🌀', cat:'bakery',  cat_lbl:'Bakery & Pastries',  price:75 },
+];
 let realtimeChannel = null;
 let autoSyncTimer   = null;
 
@@ -992,7 +1166,7 @@ $('hamburger-btn').addEventListener('click', () => $('sidebar').classList.contai
 $('sidebar-overlay').addEventListener('click', closeSidebar);
 
 /* ── TAB NAVIGATION ── */
-const TAB_TITLES = { pos:'Point of Sale', inventory:'Inventory', analytics:'Sales Analytics' };
+const TAB_TITLES = { pos:'Point of Sale', menu:'Menu Management', inventory:'Ingredient Inventory', analytics:'Sales Analytics' };
 function switchTab(tab) {
   S.activeTab = tab;
   document.querySelectorAll('.nav-item').forEach(el => {
@@ -1002,7 +1176,8 @@ function switchTab(tab) {
   });
   $('page-title').textContent = TAB_TITLES[tab];
   document.querySelectorAll('.tab-view').forEach(el => el.classList.toggle('active', el.id === 'tab-' + tab));
-  if (tab === 'inventory') renderInventory();
+  if (tab === 'menu')      renderInventory();
+  if (tab === 'inventory') renderIngredients();
   if (tab === 'analytics') renderAnalytics();
   closeSidebar();
 }
@@ -1393,22 +1568,10 @@ function renderInventory() {
   const page = all.slice((S.invPage-1)*INV_PAGE_SIZE, S.invPage*INV_PAGE_SIZE);
 
   tbody.innerHTML = page.map(item => {
-    // Stock bar (#23) — use item.stock if present, else default to 100
-    const stock = item.stock != null ? item.stock : 100;
-    const maxStock = item.maxStock || 100;
-    const pct = Math.min(100, Math.round((stock / maxStock) * 100));
-    const pbCls = pct > 60 ? 'pb-hi' : pct > 25 ? 'pb-mid' : 'pb-lo';
     return `<tr>
       <td><span style="margin-right:6px">${esc(item.emoji||'🍽️')}</span><span class="ing-name-txt">${esc(item.name)}</span></td>
       <td><span class="cat-pill" data-cat="${esc(item.cat_lbl||item.cat)}">${esc(item.cat_lbl||item.cat)}</span></td>
       <td style="font-weight:600;font-family:'Playfair Display',serif">${fmt(item.price)}</td>
-      <td class="stock-cell">
-        <div class="stock-nums">
-          <span class="stock-curr">${stock}</span>
-          <span class="stock-max-txt">/ ${maxStock}</span>
-        </div>
-        <div class="pb-bg"><div class="pb-fill ${pbCls}" style="width:${pct}%"></div></div>
-      </td>
       <td style="display:flex;gap:8px;flex-wrap:wrap">
         <button class="restock-btn" data-edit="${esc(item.id)}">Edit</button>
         <button class="restock-btn" data-del="${esc(item.id)}" style="color:#b91c1c;border-color:rgba(185,28,28,.2)">Delete</button>
@@ -1589,6 +1752,391 @@ async function applyDeleteProduct(id) {
 }
 
 $('add-product-btn').addEventListener('click', openAddProduct);
+
+/* ── INGREDIENT INVENTORY ── */
+const ING_PAGE_SIZE = 15;
+const ING_CATS = ['Coffee','Dairy','Sweeteners','Syrups','Tea & Herbs','Bakery','Supplies','Other'];
+const ING_UNITS = ['kg','g','L','mL','units','portions','bags','bottles'];
+
+function updateLowStockBadge() {
+  const low = S.ingredients.filter(i => i.stock < i.minStock);
+  const badge = $('nav-low-stock-badge');
+  if (!badge) return;
+  if (low.length) { badge.style.display = 'flex'; badge.textContent = low.length; }
+  else { badge.style.display = 'none'; }
+  // Also update banner inside inventory tab
+  const banner = $('ing-low-banner');
+  if (!banner) return;
+  if (low.length) {
+    banner.style.display = 'flex';
+    const crit = low.filter(i => i.stock === 0 || i.stock < i.minStock * 0.5).length;
+    $('ing-low-banner-txt').innerHTML = `<strong>${low.length} ingredient${low.length!==1?'s':''}</strong> need restocking${crit?' ('+crit+' critical)':''} — review and top up before service.`;
+  } else {
+    banner.style.display = 'none';
+  }
+}
+
+function ingStatus(ing) {
+  if (ing.stock <= 0)                     return { cls:'critical', lbl:'Out of Stock' };
+  if (ing.stock < ing.minStock)           return { cls:'critical', lbl:'Critical' };
+  if (ing.stock < ing.minStock * 2)       return { cls:'low',      lbl:'Low Stock' };
+  return                                         { cls:'good',     lbl:'Well Stocked' };
+}
+
+function sortedIngredients() {
+  let arr = [...S.ingredients];
+  if (S.ingCat !== 'all') arr = arr.filter(i => i.category === S.ingCat);
+  if (S.ingSearch) arr = arr.filter(i => i.name.toLowerCase().includes(S.ingSearch));
+  arr.sort((a, b) => {
+    let av = a[S.ingSort] ?? '', bv = b[S.ingSort] ?? '';
+    if (S.ingSort === 'stock') { av = Number(av); bv = Number(bv); }
+    else { av = String(av).toLowerCase(); bv = String(bv).toLowerCase(); }
+    if (av < bv) return S.ingSortDir === 'asc' ? -1 : 1;
+    if (av > bv) return S.ingSortDir === 'asc' ?  1 : -1;
+    return 0;
+  });
+  return arr;
+}
+
+function renderIngredients() {
+  updateLowStockBadge();
+  const tbody = $('ing-tbody'), empty = $('ing-empty'), table = $('ing-table');
+  if (!table) return;
+
+  // Sync search/cat UI
+  const sInp = $('ing-search-inp');
+  if (sInp && sInp.value !== S.ingSearch) sInp.value = S.ingSearch;
+
+  // Update sort arrows
+  ['name','category','stock'].forEach(f => {
+    const el = $('ing-sort-arr-' + f); if (!el) return;
+    el.textContent = S.ingSort === f ? (S.ingSortDir === 'asc' ? ' ↑' : ' ↓') : ' ↕';
+    el.style.opacity = S.ingSort === f ? '1' : '0.4';
+  });
+
+  const all = sortedIngredients();
+  if (!all.length) {
+    table.style.display = 'none'; empty.style.display = 'block'; return;
+  }
+  table.style.display = ''; empty.style.display = 'none';
+
+  const totalPages = Math.max(1, Math.ceil(all.length / ING_PAGE_SIZE));
+  S.ingPage = Math.min(S.ingPage, totalPages);
+  const page = all.slice((S.ingPage - 1) * ING_PAGE_SIZE, S.ingPage * ING_PAGE_SIZE);
+
+  tbody.innerHTML = page.map(ing => {
+    const st = ingStatus(ing);
+    const pct = Math.min(100, Math.round((ing.stock / (ing.maxStock || ing.minStock * 4 || 100)) * 100));
+    const pbCls = st.cls === 'good' ? 'pb-hi' : st.cls === 'low' ? 'pb-mid' : 'pb-lo';
+    return `<tr>
+      <td><span style="margin-right:6px;font-size:16px">${esc(ing.emoji||'🧴')}</span><span class="ing-name-txt">${esc(ing.name)}</span></td>
+      <td><span class="cat-pill" data-cat="${esc(ing.category)}">${esc(ing.category)}</span></td>
+      <td><span class="unit-badge">${esc(ing.unit)}</span></td>
+      <td class="stock-cell">
+        <div class="stock-nums">
+          <span class="stock-curr">${ing.stock}</span>
+          <span class="stock-max-txt">/ ${ing.maxStock||'–'} ${esc(ing.unit)}</span>
+        </div>
+        <div class="pb-bg"><div class="pb-fill ${pbCls}" style="width:${pct}%"></div></div>
+      </td>
+      <td style="font-size:12.5px;color:var(--fog)">${ing.minStock} ${esc(ing.unit)}</td>
+      <td><span class="ing-status ${st.cls}">${esc(st.lbl)}</span></td>
+      <td style="display:flex;gap:6px;flex-wrap:wrap">
+        <button class="restock-quick-btn" data-ing-restock="${esc(ing.id)}" title="Restock">+ Restock</button>
+        <button class="restock-btn"       data-ing-edit="${esc(ing.id)}">Edit</button>
+        <button class="restock-btn"       data-ing-del="${esc(ing.id)}" style="color:#b91c1c;border-color:rgba(185,28,28,.2)">Delete</button>
+      </td>
+    </tr>`;
+  }).join('');
+
+  renderIngPagination(totalPages, all.length);
+}
+
+function renderIngPagination(totalPages, total) {
+  let pg = $('ing-pagination');
+  if (!pg) {
+    pg = document.createElement('div');
+    pg.id = 'ing-pagination'; pg.className = 'pagination';
+    $('ing-wrap').appendChild(pg);
+  }
+  if (totalPages <= 1) { pg.innerHTML = ''; return; }
+  const cur = S.ingPage;
+  let html = `<span class="pg-info">${(cur-1)*ING_PAGE_SIZE+1}–${Math.min(cur*ING_PAGE_SIZE,total)} of ${total}</span>`;
+  html += `<button class="pg-btn" id="ing-pg-prev" ${cur===1?'disabled':''} aria-label="Previous page">‹</button>`;
+  for (let i=1;i<=totalPages;i++) {
+    if (totalPages>6 && i>2 && i<totalPages-1 && Math.abs(i-cur)>1) { if(i===3||i===totalPages-2) html+='<span class="pg-info">…</span>'; continue; }
+    html += `<button class="pg-btn${i===cur?' active':''}" data-ing-pg="${i}" aria-label="Page ${i}">${i}</button>`;
+  }
+  html += `<button class="pg-btn" id="ing-pg-next" ${cur===totalPages?'disabled':''} aria-label="Next page">›</button>`;
+  pg.innerHTML = html;
+  pg.querySelectorAll('[data-ing-pg]').forEach(b => b.addEventListener('click', () => { S.ingPage = parseInt(b.dataset.ingPg); renderIngredients(); }));
+  const prev = $('ing-pg-prev'), next = $('ing-pg-next');
+  if (prev) prev.addEventListener('click', () => { if (S.ingPage>1){S.ingPage--;renderIngredients();} });
+  if (next) next.addEventListener('click', () => { if (S.ingPage<totalPages){S.ingPage++;renderIngredients();} });
+}
+
+// ── Ingredient table events ──
+document.addEventListener('click', e => {
+  if (e.target.dataset.ingRestock) { openRestockIngredient(e.target.dataset.ingRestock); return; }
+  if (e.target.dataset.ingEdit)    { openEditIngredient(e.target.dataset.ingEdit); return; }
+  if (e.target.dataset.ingDel)     { confirmDeleteIngredient(e.target.dataset.ingDel); return; }
+});
+
+// Category filter tabs for ingredients
+$('ing-cat-tabs').addEventListener('click', e => {
+  const t = e.target.closest('[data-ingcat]'); if (!t) return;
+  S.ingCat = t.dataset.ingcat; S.ingPage = 1;
+  document.querySelectorAll('[data-ingcat]').forEach(el => {
+    const on = el.dataset.ingcat === S.ingCat;
+    el.classList.toggle('active', on);
+    el.setAttribute('aria-selected', on);
+  });
+  renderIngredients();
+});
+$('ing-cat-tabs').addEventListener('keydown', e => {
+  if ((e.key==='Enter'||e.key===' ')&&e.target.dataset.ingcat) { e.preventDefault(); e.target.click(); }
+});
+
+// Search
+$('ing-search-inp').addEventListener('input', function() {
+  S.ingSearch = this.value.trim().toLowerCase(); S.ingPage = 1;
+  $('ing-search-clear').style.display = S.ingSearch ? 'block' : 'none';
+  renderIngredients();
+});
+$('ing-search-clear').addEventListener('click', () => {
+  $('ing-search-inp').value = ''; S.ingSearch = '';
+  $('ing-search-clear').style.display = 'none';
+  $('ing-search-inp').focus(); renderIngredients();
+});
+
+// Sort
+$('ing-table').querySelector('thead').addEventListener('click', e => {
+  const th = e.target.closest('th[data-ingsort]'); if (!th) return;
+  const field = th.dataset.ingsort;
+  if (S.ingSort === field) S.ingSortDir = S.ingSortDir==='asc'?'desc':'asc';
+  else { S.ingSort = field; S.ingSortDir = 'asc'; }
+  S.ingPage = 1; renderIngredients();
+});
+
+// Add ingredient button
+$('add-ingredient-btn').addEventListener('click', openAddIngredient);
+
+function ingFormHTML(title, icon, vals) {
+  const catOpts = ING_CATS.map(c => `<option value="${esc(c)}"${vals.category===c?' selected':''}>${esc(c)}</option>`).join('');
+  const unitOpts = ING_UNITS.map(u => `<option value="${esc(u)}"${vals.unit===u?' selected':''}>${esc(u)}</option>`).join('');
+  return `
+    <button class="modal-x" id="mo-x" aria-label="Close">×</button>
+    <div class="modal-icon" aria-hidden="true">${icon}</div>
+    <div class="modal-title" id="modal-title-el">${title}</div>
+    <div style="display:grid;grid-template-columns:60px 1fr;gap:12px;margin-bottom:4px">
+      <div>
+        <label class="form-lbl" for="if-emoji">Emoji</label>
+        <input type="text" id="if-emoji" class="form-inp" value="${esc(vals.emoji||'🧴')}" maxlength="4" style="text-align:center;font-size:20px">
+      </div>
+      <div>
+        <label class="form-lbl" for="if-name">Ingredient Name</label>
+        <input type="text" id="if-name" class="form-inp" value="${esc(vals.name||'')}" maxlength="60" placeholder="e.g. Oat Milk" autocomplete="off">
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div>
+        <label class="form-lbl" for="if-cat">Category</label>
+        <select id="if-cat" class="form-sel">${catOpts}</select>
+      </div>
+      <div>
+        <label class="form-lbl" for="if-unit">Unit</label>
+        <select id="if-unit" class="form-sel">${unitOpts}</select>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+      <div>
+        <label class="form-lbl" for="if-stock">Current Stock</label>
+        <input type="number" id="if-stock" class="form-inp" value="${vals.stock??0}" min="0" step="0.01" placeholder="0">
+      </div>
+      <div>
+        <label class="form-lbl" for="if-minstk">Min Stock (Reorder)</label>
+        <input type="number" id="if-minstk" class="form-inp" value="${vals.minStock??0}" min="0" step="0.01" placeholder="0">
+      </div>
+      <div>
+        <label class="form-lbl" for="if-maxstk">Max Stock</label>
+        <input type="number" id="if-maxstk" class="form-inp" value="${vals.maxStock??100}" min="0" step="0.01" placeholder="100">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary" id="mo-cancel">Cancel</button>
+      <button class="btn-primary"   id="mo-confirm">${vals.btnLabel||'Save'}</button>
+    </div>`;
+}
+
+function readIngForm() {
+  return {
+    name:     ($('if-name').value||'').trim(),
+    emoji:    ($('if-emoji').value||'🧴').trim(),
+    category: $('if-cat').value,
+    unit:     $('if-unit').value,
+    stock:    parseFloat($('if-stock').value),
+    minStock: parseFloat($('if-minstk').value),
+    maxStock: parseFloat($('if-maxstk').value),
+  };
+}
+
+function validateIngForm(d) {
+  if (!d.name)         { toast('error','Missing Name','Enter an ingredient name.',3000); return false; }
+  if (isNaN(d.stock))  { toast('error','Invalid Stock','Enter a valid current stock.',3000); return false; }
+  if (isNaN(d.minStock)||d.minStock<0) { toast('error','Invalid Min Stock','Enter a valid minimum stock.',3000); return false; }
+  if (isNaN(d.maxStock)||d.maxStock<=0){ toast('error','Invalid Max Stock','Enter a valid max stock.',3000); return false; }
+  return true;
+}
+
+function openAddIngredient() {
+  $('modal-box').innerHTML = ingFormHTML('Add Ingredient', '🧴', { category:'Coffee', unit:'kg', stock:0, minStock:0, maxStock:100, btnLabel:'Add Ingredient' });
+  openModal();
+  setTimeout(() => { const n=$('if-name'); if(n) n.focus(); }, 60);
+  $('mo-x').addEventListener('click', closeModal);
+  $('mo-cancel').addEventListener('click', closeModal);
+  $('mo-confirm').addEventListener('click', applyAddIngredient);
+}
+
+async function applyAddIngredient() {
+  const d = readIngForm(); if (!validateIngForm(d)) return;
+  const ing = { id: 'i' + Date.now(), ...d };
+  closeModal();
+  S.ingredients.push(ing);
+  if (isLocalAdmin()) { localAdminSave(); }
+  updateLowStockBadge();
+  setSyncStatus('syncing');
+  const { error } = await sb.from('ingredients').insert(ing);
+  if (error && !isLocalAdmin()) { setSyncStatus('error'); toast('error','Error',error.message,4000); S.ingredients.pop(); renderIngredients(); return; }
+  setSyncStatus(isLocalAdmin() && error ? 'local' : 'ok');
+  renderIngredients();
+  toast('success','Ingredient Added',`${ing.emoji} ${ing.name} added to inventory.`,3000);
+}
+
+function openEditIngredient(id) {
+  const ing = S.ingredients.find(i => i.id === id); if (!ing) return;
+  $('modal-box').innerHTML = ingFormHTML('Edit Ingredient', '✏️', { ...ing, btnLabel:'Save Changes' });
+  openModal();
+  $('mo-x').addEventListener('click', closeModal);
+  $('mo-cancel').addEventListener('click', closeModal);
+  $('mo-confirm').addEventListener('click', () => applyEditIngredient(id));
+}
+
+async function applyEditIngredient(id) {
+  const d = readIngForm(); if (!validateIngForm(d)) return;
+  closeModal();
+  const idx = S.ingredients.findIndex(i => i.id === id);
+  if (idx >= 0) S.ingredients[idx] = { ...S.ingredients[idx], ...d };
+  if (isLocalAdmin()) { localAdminSave(); }
+  updateLowStockBadge();
+  setSyncStatus('syncing');
+  const { error } = await sb.from('ingredients').update(d).eq('id', id);
+  if (error && !isLocalAdmin()) { setSyncStatus('error'); toast('error','Error',error.message,4000); return; }
+  setSyncStatus(isLocalAdmin() && error ? 'local' : 'ok');
+  renderIngredients();
+  toast('success','Saved',`${d.emoji} ${d.name} updated.`,3000);
+}
+
+function confirmDeleteIngredient(id) {
+  const ing = S.ingredients.find(i => i.id === id); if (!ing) return;
+  $('modal-box').innerHTML = `
+    <button class="modal-x" id="mo-x" aria-label="Close">×</button>
+    <div class="modal-icon" aria-hidden="true">🗑️</div>
+    <div class="modal-title" id="modal-title-el">Delete Ingredient?</div>
+    <div class="modal-body">${esc(ing.emoji||'')} <strong>${esc(ing.name)}</strong> will be removed from your inventory.</div>
+    <div class="modal-actions">
+      <button class="btn-secondary" id="mo-cancel">Cancel</button>
+      <button class="btn-primary" id="mo-confirm" style="background:#dc2626">Delete</button>
+    </div>`;
+  openModal();
+  $('mo-x').addEventListener('click', closeModal);
+  $('mo-cancel').addEventListener('click', closeModal);
+  $('mo-confirm').addEventListener('click', () => applyDeleteIngredient(id));
+}
+
+async function applyDeleteIngredient(id) {
+  closeModal();
+  S.ingredients = S.ingredients.filter(i => i.id !== id);
+  if (isLocalAdmin()) { localAdminSave(); }
+  updateLowStockBadge();
+  setSyncStatus('syncing');
+  const { error } = await sb.from('ingredients').delete().eq('id', id);
+  if (error && !isLocalAdmin()) { setSyncStatus('error'); toast('error','Error',error.message,4000); return; }
+  setSyncStatus(isLocalAdmin() && error ? 'local' : 'ok');
+  renderIngredients();
+  toast('success','Deleted','Ingredient removed from inventory.',3000);
+}
+
+function openRestockIngredient(id) {
+  const ing = S.ingredients.find(i => i.id === id); if (!ing) return;
+  const st = ingStatus(ing);
+  $('modal-box').innerHTML = `
+    <button class="modal-x" id="mo-x" aria-label="Close">×</button>
+    <div class="modal-icon" aria-hidden="true">📦</div>
+    <div class="modal-title" id="modal-title-el">Restock: ${esc(ing.name)}</div>
+    <div style="padding:11px 14px;background:var(--cream);border-radius:9px;margin-bottom:16px;font-size:13px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+        <span style="color:var(--fog)">Current stock</span>
+        <strong>${ing.stock} ${esc(ing.unit)}</strong>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+        <span style="color:var(--fog)">Min stock</span>
+        <span>${ing.minStock} ${esc(ing.unit)}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between">
+        <span style="color:var(--fog)">Status</span>
+        <span class="ing-status ${st.cls}">${esc(st.lbl)}</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:14px">
+      <button class="cat-tab active" id="rs-mode-add" style="flex:1;border-radius:8px">➕ Add Amount</button>
+      <button class="cat-tab"        id="rs-mode-set" style="flex:1;border-radius:8px">📋 Set Exact</button>
+    </div>
+    <label class="form-lbl" for="rs-amount" id="rs-amount-lbl">Amount to add (${esc(ing.unit)})</label>
+    <input type="number" id="rs-amount" class="form-inp" min="0" step="0.01" placeholder="0" autofocus>
+    <div id="rs-preview" style="font-size:12.5px;color:var(--fog);margin-bottom:16px"></div>
+    <div class="modal-actions">
+      <button class="btn-secondary" id="mo-cancel">Cancel</button>
+      <button class="btn-primary"   id="mo-confirm">Confirm Restock</button>
+    </div>`;
+  openModal();
+  let mode = 'add';
+  function updatePreview() {
+    const amt = parseFloat($('rs-amount').value) || 0;
+    const newVal = mode === 'add' ? ing.stock + amt : amt;
+    $('rs-preview').textContent = `New stock will be: ${newVal.toFixed(2)} ${ing.unit}`;
+  }
+  $('rs-amount').addEventListener('input', updatePreview);
+  $('rs-mode-add').addEventListener('click', () => {
+    mode = 'add';
+    $('rs-mode-add').classList.add('active'); $('rs-mode-set').classList.remove('active');
+    $('rs-amount-lbl').textContent = `Amount to add (${ing.unit})`;
+    updatePreview();
+  });
+  $('rs-mode-set').addEventListener('click', () => {
+    mode = 'set';
+    $('rs-mode-set').classList.add('active'); $('rs-mode-add').classList.remove('active');
+    $('rs-amount-lbl').textContent = `Set stock to (${ing.unit})`;
+    updatePreview();
+  });
+  $('mo-x').addEventListener('click', closeModal);
+  $('mo-cancel').addEventListener('click', closeModal);
+  $('mo-confirm').addEventListener('click', async () => {
+    const amt = parseFloat($('rs-amount').value);
+    if (isNaN(amt) || amt < 0) { toast('error','Invalid Amount','Enter a valid amount.',3000); return; }
+    const newStock = mode === 'add' ? ing.stock + amt : amt;
+    closeModal();
+    const idx = S.ingredients.findIndex(i => i.id === id);
+    if (idx >= 0) S.ingredients[idx].stock = newStock;
+    if (isLocalAdmin()) { localAdminSave(); }
+    updateLowStockBadge();
+    setSyncStatus('syncing');
+    const { error } = await sb.from('ingredients').update({ stock: newStock }).eq('id', id);
+    if (error && !isLocalAdmin()) { setSyncStatus('error'); toast('error','Error',error.message,4000); return; }
+    setSyncStatus(isLocalAdmin() && error ? 'local' : 'ok');
+    renderIngredients();
+    toast('success','Restocked',`${ing.emoji} ${ing.name}: now ${newStock} ${ing.unit}.`,3000);
+  });
+}
 
 /* ── MODAL ── */
 function openModal() {
@@ -1788,23 +2336,26 @@ function renderBestSellers(txs) {
 function renderCatChart(txs) {
   const wrap=$('cat-chart-wrap');
   if (!txs.length) { wrap.innerHTML='<div class="panel-empty">No sales data yet — complete an order to see chart.</div>'; return; }
-  const CAT_LABEL={coffee:'Espresso & Coffee',cold:'Cold Brews & Iced',tea:'Hot Teas',bakery:'Bakery & Pastries'};
+  const CAT_CLR={
+    coffee: 'linear-gradient(90deg,var(--honey),var(--amber))',
+    cold:   'linear-gradient(90deg,#0ea5e9,#38bdf8)',
+    tea:    'linear-gradient(90deg,#22c55e,#4ade80)',
+    bakery: 'linear-gradient(90deg,#f97316,#fb923c)',
+  };
   const catMap={};
+  const catLabel={};
   txs.forEach(tx=>tx.items.forEach(i=>{
-    const cat=S.menu.find(m=>m.id===i.id)?.cat||'other';
+    const menuItem = S.menu.find(m=>m.id===i.id);
+    const cat = menuItem?.cat || 'other';
+    const lbl = menuItem?.cat_lbl || menuItem?.catLbl || cat;
     catMap[cat]=(catMap[cat]||0)+i.price*i.qty;
+    if (!catLabel[cat]) catLabel[cat]=lbl;
   }));
   const entries=Object.entries(catMap).sort((a,b)=>b[1]-a[1]);
   const maxVal=entries[0]?.[1]||1;
-  const CAT_CLR={
-    coffee:'linear-gradient(90deg,var(--honey),var(--amber))',
-    cold:  'linear-gradient(90deg,#0ea5e9,#38bdf8)',
-    tea:   'linear-gradient(90deg,#22c55e,#4ade80)',
-    bakery:'linear-gradient(90deg,#f97316,#fb923c)',
-  };
   wrap.innerHTML=`<div class="chart-wrap">${entries.map(([cat,val])=>
     `<div class="chart-row">
-      <div class="chart-lbl" title="${esc(CAT_LABEL[cat]||cat)}">${esc(CAT_LABEL[cat]||cat)}</div>
+      <div class="chart-lbl" title="${esc(catLabel[cat]||cat)}">${esc(catLabel[cat]||cat)}</div>
       <div class="chart-bar-bg"><div class="chart-bar-fill" style="width:${((val/maxVal)*100).toFixed(1)}%;background:${CAT_CLR[cat]||'linear-gradient(90deg,var(--honey),var(--amber))'}"></div></div>
       <div class="chart-val">${fmt(val)}</div>
     </div>`).join('')}</div>`;
@@ -2025,9 +2576,10 @@ function exportPdfA6(tx) {
     <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:700;color:#111;padding-top:8px;border-top:1.5px solid #ccc;margin-top:4px"><span>Total</span><span>ETB ${tx.total.toFixed(2)}</span></div>
   `;
 
-  // Build receipt DOM element off-screen (html2pdf renders whatever is in the DOM)
+  // Element must be inside the viewport — html2canvas can't capture truly off-screen
+  // nodes. We use opacity:0.001 + z-index:-1 so it's invisible but still composited.
   const el = document.createElement('div');
-  el.style.cssText = 'position:absolute;left:-9999px;top:0;width:321px;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#111;padding:0;line-height:1.4';
+  el.style.cssText = 'position:fixed;top:0;left:0;z-index:-1;opacity:0.001;pointer-events:none;width:321px;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#111;padding:20px;box-sizing:border-box;line-height:1.5';
   el.innerHTML = `
     <div style="text-align:center;margin-bottom:14px">
       <div style="font-family:Georgia,'Times New Roman',serif;font-size:26px;font-weight:700;color:#4a2a14;letter-spacing:.5px">☕ Breva</div>
@@ -2050,15 +2602,18 @@ function exportPdfA6(tx) {
 
   document.body.appendChild(el);
 
-  html2pdf().set({
-    margin:      10,
-    filename:    `Breva-Receipt-${tx.id}.pdf`,
-    image:       { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true, logging: false },
-    jsPDF:       { unit: 'mm', format: 'a6', orientation: 'portrait' }
-  }).from(el).save()
-    .then(()  => document.body.removeChild(el))
-    .catch(() => { document.body.removeChild(el); toast('error','PDF Error','Could not generate PDF.',4000); });
+  // Wait one animation frame so the browser paints the element before capture
+  requestAnimationFrame(() => {
+    html2pdf().set({
+      margin:      10,
+      filename:    `Breva-Receipt-${tx.id}.pdf`,
+      image:       { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true, logging: false, scrollX: 0, scrollY: 0 },
+      jsPDF:       { unit: 'mm', format: 'a6', orientation: 'portrait' }
+    }).from(el).save()
+      .then(()  => document.body.removeChild(el))
+      .catch(() => { document.body.removeChild(el); toast('error','PDF Error','Could not generate PDF.',4000); });
+  });
 }
 
 /* ── EXPORT CSV ── */
@@ -2081,14 +2636,17 @@ function exportCSV() {
 
 /* ── SUPABASE DATA ── */
 async function loadFromDB() {
-  const [{ data: menu, error: e1 }, { data: txs, error: e2 }] = await Promise.all([
+  const [{ data: menu, error: e1 }, { data: txs, error: e2 }, { data: ings, error: e3 }] = await Promise.all([
     sb.from('menu').select('*').order('name'),
-    sb.from('transactions').select('*').order('ts', { ascending: false })
+    sb.from('transactions').select('*').order('ts', { ascending: false }),
+    sb.from('ingredients').select('*').order('name'),
   ]);
   if (e1 || e2) { console.error('DB load:', e1||e2); return false; }
-  if (menu)  S.menu = menu;
+  if (menu)  S.menu = menu.length ? menu : [...DEFAULT_MENU];
   if (txs)   S.transactions = txs.map(t => ({ ...t, ts: new Date(t.ts), paymentMethod: t.payment_method }));
+  if (ings)  S.ingredients = ings.length ? ings : [...DEFAULT_INGREDIENTS];
   renderCatTabs();
+  updateLowStockBadge();
   return true;
 }
 
@@ -2118,6 +2676,22 @@ function subscribeRealtime() {
       S.transactions.unshift({ ...row, ts: new Date(row.ts), paymentMethod: row.payment_method });
       if (S.activeTab === 'analytics') renderAnalytics();
     })
+    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'ingredients' }, ({ new: row }) => {
+      if (!row || S.ingredients.find(i => i.id === row.id)) return;
+      S.ingredients.push(row); updateLowStockBadge();
+      if (S.activeTab === 'inventory') renderIngredients();
+    })
+    .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'ingredients' }, ({ new: row }) => {
+      if (!row) return;
+      const idx = S.ingredients.findIndex(i => i.id === row.id);
+      if (idx >= 0) S.ingredients[idx] = row; updateLowStockBadge();
+      if (S.activeTab === 'inventory') renderIngredients();
+    })
+    .on('postgres_changes', { event: 'DELETE', schema: 'public', table: 'ingredients' }, ({ old: row }) => {
+      if (!row) return;
+      S.ingredients = S.ingredients.filter(i => i.id !== row.id); updateLowStockBadge();
+      if (S.activeTab === 'inventory') renderIngredients();
+    })
     .subscribe((status) => {
       if (status === 'SUBSCRIBED') setSyncStatus('ok');
       if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') setSyncStatus('error');
@@ -2132,7 +2706,8 @@ async function syncNow() {
     setSyncStatus(isLocalAdmin() ? 'local' : 'ok');
     renderGrid();
     if (S.activeTab === 'analytics') renderAnalytics();
-    if (S.activeTab === 'inventory') renderInventory();
+    if (S.activeTab === 'menu')      renderInventory();
+    if (S.activeTab === 'inventory') renderIngredients();
   } else {
     setSyncStatus(isLocalAdmin() ? 'local' : 'error');
   }
@@ -2187,7 +2762,7 @@ async function handleSession(session) {
   subscribeRealtime();
   startAutoSync();
   S.cart = [];
-  renderGrid(); renderCart();
+  renderGrid(); renderCart(); updateLowStockBadge();
   setSyncStatus('ok');
 }
 
@@ -2219,12 +2794,13 @@ async function handleLocalAdmin(fromRestore = false) {
   localAdminLoad();
   showGridSkeleton(); showAnalyticsSkeleton();
   renderCatTabs(); renderGrid(); renderCart();
+  updateLowStockBadge();
   setSyncStatus('syncing');
   const cloudOk = await loadFromDB();
   if (cloudOk) { subscribeRealtime(); startAutoSync(); setSyncStatus('ok'); }
   else { setSyncStatus('local'); }
   S.cart = [];
-  renderGrid(); renderCart();
+  renderGrid(); renderCart(); updateLowStockBadge();
   if (!fromRestore) setAuthBusy('auth-signin-btn', false, 'Sign In');
 }
 
@@ -2253,12 +2829,12 @@ async function doSignOut() {
   if (isLocalAdmin()) {
     localStorage.removeItem(LS_LA_SESSION);
     currentUser = null; currentRole = 'cashier';
-    S.cart = []; S.transactions = []; S.menu = [];
+    S.cart = []; S.transactions = []; S.menu = []; S.ingredients = [];
     renderCart(); renderGrid(); renderCatTabs();
     showAuthScreen(); return;
   }
   await sb.auth.signOut();
-  S.cart = []; S.transactions = [];
+  S.cart = []; S.transactions = []; S.ingredients = [];
   renderCart(); renderGrid();
 }
 
@@ -2311,7 +2887,7 @@ function renderUserBadge(name, role) {
 
 function applyRoleRestrictions(role) {
   const cashier = role === 'cashier';
-  document.querySelectorAll('[data-tab="inventory"],[data-tab="analytics"]')
+  document.querySelectorAll('[data-tab="menu"],[data-tab="inventory"],[data-tab="analytics"]')
     .forEach(el => el.style.display = cashier ? 'none' : '');
   const ex = $('export-csv-btn'); if (ex) ex.style.display = cashier ? 'none' : '';
 }
@@ -2381,10 +2957,11 @@ document.addEventListener('keydown', e=>{
   if(e.key==='c'&&!inInput&&S.activeTab==='pos'){
     e.preventDefault(); if(S.cart.length) processCheckout();
   }
-  // '1','2','3' — switch tabs
+  // '1','2','3','4' — switch tabs
   if(e.key==='1'&&!inInput){ switchTab('pos'); }
-  if(e.key==='2'&&!inInput){ if(currentRole!=='cashier') switchTab('inventory'); }
-  if(e.key==='3'&&!inInput){ if(currentRole!=='cashier') switchTab('analytics'); }
+  if(e.key==='2'&&!inInput){ if(currentRole!=='cashier') switchTab('menu'); }
+  if(e.key==='3'&&!inInput){ if(currentRole!=='cashier') switchTab('inventory'); }
+  if(e.key==='4'&&!inInput){ if(currentRole!=='cashier') switchTab('analytics'); }
 });
 
 /* ── INIT ── */
@@ -2403,6 +2980,17 @@ create table menu (
   cat_lbl text not null,
   price double precision not null,
   emoji text not null default '🍽️'
+);
+
+create table ingredients (
+  id text primary key,
+  name text not null,
+  emoji text not null default '🧴',
+  category text not null,
+  unit text not null default 'units',
+  stock double precision not null default 0,
+  min_stock double precision not null default 0,
+  max_stock double precision not null default 100
 );
 
 create table transactions (
@@ -2436,8 +3024,13 @@ create policy "tx_write"    on transactions for insert with check (true);
 create policy "auth_profiles_read"    on profiles for select to authenticated using (true);
 create policy "auth_profiles_insert"  on profiles for insert to authenticated with check (auth.uid() = id);
 
+alter table ingredients enable row level security;
+create policy "ing_read"  on ingredients for select using (true);
+create policy "ing_write" on ingredients for all    using (true);
+
 alter publication supabase_realtime add table menu;
 alter publication supabase_realtime add table transactions;
+alter publication supabase_realtime add table ingredients;
 
    ═══════════════════════════════════════════════════════════════ */
 </script>
